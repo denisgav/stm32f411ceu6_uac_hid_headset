@@ -578,6 +578,14 @@
     [
       "aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206",
       "Root"
+    ],
+    [
+      "d6b6fe50-d30a-4f82-97da-ed188bcde249",
+      "PCM5102"
+    ],
+    [
+      "850fb9da-5125-4af4-b1b4-d624ecc42efc",
+      "MCU"
     ]
   ],
   "text_variables": {}
