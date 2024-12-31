@@ -586,6 +586,10 @@
     [
       "850fb9da-5125-4af4-b1b4-d624ecc42efc",
       "MCU"
+    ],
+    [
+      "73f0023b-2db5-4e36-9906-e9384dd08abf",
+      "headphone_amplifier"
     ]
   ],
   "text_variables": {}

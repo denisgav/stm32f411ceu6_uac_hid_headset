@@ -6,6 +6,44 @@
 	(paper "A4")
 	(lib_symbols)
 	(sheet
+		(at 26.67 74.93)
+		(size 31.75 38.1)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "73f0023b-2db5-4e36-9906-e9384dd08abf")
+		(property "Sheetname" "headphone_amplifier"
+			(at 26.67 74.2184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "headphone_amplifier.kicad_sch"
+			(at 26.67 113.6146 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "stm32f411ceu6_pcm5102_shield"
+				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
 		(at 86.36 25.4)
 		(size 33.02 31.75)
 		(fields_autoplaced yes)
