@@ -1,4 +1,4 @@
-24416120068288156
+24421326977980773
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -98595,9 +98595,30 @@ Varistor VF
 2
 2
 stm32f401_pcm5102_shiled_lib
+128x64OLED
+
+
+0
+4
+4
+stm32f401_pcm5102_shiled_lib
 SW_DPDT_XLX
 DPDT Latching
 SW DPDT
+0
+6
+6
+stm32f401_pcm5102_shiled_lib
+SW_PUSH_6mm_H5mm
+tactile push button, 6x6mm e.g. PHAP33xx series, height=5mm
+tact sw push 6mm
+0
+4
+2
+stm32f401_pcm5102_shiled_lib
+inmp441
+
+
 0
 6
 6
@@ -98606,5 +98627,5 @@ stm32f411_blackpill
 
 
 0
-0
-0
+44
+44
