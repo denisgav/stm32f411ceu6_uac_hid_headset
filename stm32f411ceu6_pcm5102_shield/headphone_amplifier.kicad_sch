@@ -1017,12 +1017,6 @@
 		(color 0 0 0 0)
 		(uuid "acdcf968-434a-4f54-b832-61143237020e")
 	)
-	(junction
-		(at 59.69 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e731401b-2470-4080-9cc6-91017654ca98")
-	)
 	(wire
 		(pts
 			(xy 130.81 59.69) (xy 130.81 62.23)
@@ -1035,7 +1029,7 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 49.53) (xy 59.69 52.07)
+			(xy 59.69 49.53) (xy 59.69 53.34)
 		)
 		(stroke
 			(width 0)
@@ -1155,16 +1149,6 @@
 	)
 	(wire
 		(pts
-			(xy 142.24 64.77) (xy 142.24 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3e383d00-f5cf-4576-9769-66ae6c4fea6e")
-	)
-	(wire
-		(pts
 			(xy 142.24 41.91) (xy 142.24 43.18)
 		)
 		(stroke
@@ -1202,16 +1186,6 @@
 			(type default)
 		)
 		(uuid "50809d3a-145f-4629-b76b-ffb07d7b7b94")
-	)
-	(wire
-		(pts
-			(xy 142.24 67.31) (xy 166.37 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5785e34e-206b-4703-adc5-aa5dac9d4663")
 	)
 	(wire
 		(pts
@@ -1262,6 +1236,16 @@
 			(type default)
 		)
 		(uuid "6e0283c2-9e60-4db7-901a-a1e73ea62507")
+	)
+	(wire
+		(pts
+			(xy 59.69 60.96) (xy 59.69 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6fbecc3e-2feb-4c0c-943c-e583d5838314")
 	)
 	(wire
 		(pts
@@ -1385,17 +1369,7 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 59.69) (xy 59.69 62.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c539c53a-5bd5-42d0-bb77-56710f3de6b8")
-	)
-	(wire
-		(pts
-			(xy 166.37 67.31) (xy 166.37 83.82)
+			(xy 142.24 64.77) (xy 142.24 71.12)
 		)
 		(stroke
 			(width 0)
@@ -1442,16 +1416,6 @@
 			(type default)
 		)
 		(uuid "d8915d66-a770-4a90-8cc0-4025a841f944")
-	)
-	(wire
-		(pts
-			(xy 59.69 58.42) (xy 59.69 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d8ca967c-2f13-4a8f-96bb-7772b4ac8254")
 	)
 	(wire
 		(pts
@@ -6456,7 +6420,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 59.69 62.23 0)
+		(at 59.69 63.5 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6465,7 +6429,7 @@
 		(fields_autoplaced yes)
 		(uuid "5cd96dd7-9dc8-4759-9e8f-09e137344043")
 		(property "Reference" "#PWR011"
-			(at 59.69 68.58 0)
+			(at 59.69 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6474,7 +6438,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 59.69 67.31 0)
+			(at 59.69 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6482,7 +6446,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 59.69 62.23 0)
+			(at 59.69 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6491,7 +6455,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 59.69 62.23 0)
+			(at 59.69 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6500,7 +6464,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 59.69 62.23 0)
+			(at 59.69 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6590,7 +6554,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 59.69 55.88 0)
+		(at 59.69 57.15 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6598,7 +6562,7 @@
 		(dnp no)
 		(uuid "82c1fe18-b5c4-41e1-a3fe-880b4bbf3dcc")
 		(property "Reference" "R2"
-			(at 53.34 55.88 90)
+			(at 53.34 57.15 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6606,7 +6570,7 @@
 			)
 		)
 		(property "Value" "1kR"
-			(at 55.88 55.88 90)
+			(at 55.88 57.15 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6614,7 +6578,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 57.912 55.88 90)
+			(at 57.912 57.15 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6623,7 +6587,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 59.69 55.88 0)
+			(at 59.69 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6632,7 +6596,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 59.69 55.88 0)
+			(at 59.69 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6641,7 +6605,7 @@
 			)
 		)
 		(property "LCSC link" "https://www.lcsc.com/product-detail/Chip-Resistor-Surface-Mount_UNI-ROYAL-Uniroyal-Elec-0805W8F100JT5E_C17415.html"
-			(at 59.69 55.88 0)
+			(at 59.69 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6650,7 +6614,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 59.69 55.88 0)
+			(at 59.69 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6659,7 +6623,7 @@
 			)
 		)
 		(property "Manufacturer Part Number" "0805W8F100JT5E"
-			(at 59.69 55.88 0)
+			(at 59.69 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7652,7 +7616,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 166.37 83.82 0)
+		(at 142.24 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7661,7 +7625,7 @@
 		(fields_autoplaced yes)
 		(uuid "e6ffdf0b-8429-47fd-b443-8b1f24c3dbaa")
 		(property "Reference" "#PWR023"
-			(at 166.37 90.17 0)
+			(at 142.24 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7670,7 +7634,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 166.37 88.9 0)
+			(at 142.24 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7678,7 +7642,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 166.37 83.82 0)
+			(at 142.24 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7687,7 +7651,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 166.37 83.82 0)
+			(at 142.24 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7696,7 +7660,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 166.37 83.82 0)
+			(at 142.24 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
