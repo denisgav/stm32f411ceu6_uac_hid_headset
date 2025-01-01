@@ -4864,7 +4864,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "00db2a1d-5c37-4db3-867b-d1c85ef1ce18")
-		(property "Reference" "U2"
+		(property "Reference" "SW201"
 			(at 45.72 39.37 0)
 			(effects
 				(font
@@ -4928,7 +4928,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "U2")
+					(reference "SW201")
 					(unit 1)
 				)
 			)
@@ -4943,7 +4943,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0b435d65-c8fc-4384-857a-b92bf3e0b8de")
-		(property "Reference" "R16"
+		(property "Reference" "R203"
 			(at 59.69 140.97 90)
 			(effects
 				(font
@@ -5022,7 +5022,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "R16")
+					(reference "R203")
 					(unit 1)
 				)
 			)
@@ -5037,7 +5037,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0c1a2c99-05ef-4141-8844-03db4f9ddd47")
-		(property "Reference" "U1"
+		(property "Reference" "SW200"
 			(at 45.72 22.86 0)
 			(effects
 				(font
@@ -5101,7 +5101,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "U1")
+					(reference "SW200")
 					(unit 1)
 				)
 			)
@@ -5116,7 +5116,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0d22df9c-c49b-40dd-b4b5-69dd790f1f91")
-		(property "Reference" "U4"
+		(property "Reference" "SW203"
 			(at 45.72 72.39 0)
 			(effects
 				(font
@@ -5180,7 +5180,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "U4")
+					(reference "SW203")
 					(unit 1)
 				)
 			)
@@ -5195,7 +5195,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "11ca29b0-0dbb-474e-b86e-53d91675ff09")
-		(property "Reference" "C6"
+		(property "Reference" "C202"
 			(at 156.21 31.75 0)
 			(effects
 				(font
@@ -5276,7 +5276,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C6")
+					(reference "C202")
 					(unit 1)
 				)
 			)
@@ -5555,7 +5555,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "19376a60-03a5-4e62-99cf-2a7723c7af70")
-		(property "Reference" "C16"
+		(property "Reference" "C210"
 			(at 250.444 91.948 0)
 			(effects
 				(font
@@ -5609,7 +5609,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C16")
+					(reference "C210")
 					(unit 1)
 				)
 			)
@@ -5624,7 +5624,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1a6664f6-82bf-4eab-9907-a4de0031d993")
-		(property "Reference" "R17"
+		(property "Reference" "R204"
 			(at 69.85 140.97 90)
 			(effects
 				(font
@@ -5703,7 +5703,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "R17")
+					(reference "R204")
 					(unit 1)
 				)
 			)
@@ -5785,7 +5785,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "252c1178-62c2-4b76-8416-895ea55c4e1a")
-		(property "Reference" "C5"
+		(property "Reference" "C201"
 			(at 133.35 31.75 0)
 			(effects
 				(font
@@ -5866,7 +5866,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C5")
+					(reference "C201")
 					(unit 1)
 				)
 			)
@@ -5881,7 +5881,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "28f850ac-25ef-461e-9862-156a9ea87311")
-		(property "Reference" "C8"
+		(property "Reference" "C203"
 			(at 189.23 31.75 0)
 			(effects
 				(font
@@ -5962,7 +5962,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C8")
+					(reference "C203")
 					(unit 1)
 				)
 			)
@@ -5977,7 +5977,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2a8a58dc-f470-4a30-b0d3-ac1de7bd702b")
-		(property "Reference" "C9"
+		(property "Reference" "C215"
 			(at 171.704 85.598 0)
 			(effects
 				(font
@@ -6031,7 +6031,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C9")
+					(reference "C215")
 					(unit 1)
 				)
 			)
@@ -6113,7 +6113,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "38730568-fef3-4e9c-a263-11a9d25b24da")
-		(property "Reference" "R13"
+		(property "Reference" "R200"
 			(at 146.05 20.32 90)
 			(effects
 				(font
@@ -6192,7 +6192,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "R13")
+					(reference "R200")
 					(unit 1)
 				)
 			)
@@ -6274,7 +6274,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3bc51c45-9076-42fa-94b2-74e3e0cd7186")
-		(property "Reference" "U7"
+		(property "Reference" "U201"
 			(at 168.91 19.05 0)
 			(effects
 				(font
@@ -6366,7 +6366,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "U7")
+					(reference "U201")
 					(unit 1)
 				)
 			)
@@ -6581,7 +6581,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "41a97d79-26bc-42eb-9ad5-ee3de564e7e9")
-		(property "Reference" "C20"
+		(property "Reference" "C211"
 			(at 270.51 91.8209 0)
 			(effects
 				(font
@@ -6635,7 +6635,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C20")
+					(reference "C211")
 					(unit 1)
 				)
 			)
@@ -6651,7 +6651,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "446d5a53-69b2-4f3b-ac43-bf1baae7d3d9")
-		(property "Reference" "C18"
+		(property "Reference" "C207"
 			(at 270.51 48.6409 0)
 			(effects
 				(font
@@ -6705,7 +6705,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C18")
+					(reference "C207")
 					(unit 1)
 				)
 			)
@@ -6788,7 +6788,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "46a37f1f-3096-4860-b680-ac60d8bbf93a")
-		(property "Reference" "C17"
+		(property "Reference" "C205"
 			(at 270.51 24.5109 0)
 			(effects
 				(font
@@ -6842,7 +6842,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C17")
+					(reference "C205")
 					(unit 1)
 				)
 			)
@@ -6857,7 +6857,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4a326019-a2bc-4d7b-b7e4-5f4c16d714e3")
-		(property "Reference" "U5"
+		(property "Reference" "SW204"
 			(at 45.72 88.9 0)
 			(effects
 				(font
@@ -6921,7 +6921,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "U5")
+					(reference "SW204")
 					(unit 1)
 				)
 			)
@@ -6936,7 +6936,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6e564e5c-d666-412d-ae75-18c57507b64e")
-		(property "Reference" "C12"
+		(property "Reference" "C214"
 			(at 34.544 141.478 0)
 			(effects
 				(font
@@ -6990,7 +6990,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C12")
+					(reference "C214")
 					(unit 1)
 				)
 			)
@@ -7007,7 +7007,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6e6da397-4f56-4d2b-9a3f-e19fd6f2c33a")
-		(property "Reference" "J2"
+		(property "Reference" "J200"
 			(at 93.345 116.84 0)
 			(effects
 				(font
@@ -7080,7 +7080,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "J2")
+					(reference "J200")
 					(unit 1)
 				)
 			)
@@ -7294,7 +7294,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7a3f8ef0-a3c6-44ec-8ba1-fb3cc43a708c")
-		(property "Reference" "U6"
+		(property "Reference" "U200"
 			(at 157.1341 68.58 0)
 			(effects
 				(font
@@ -7402,7 +7402,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "U6")
+					(reference "U200")
 					(unit 1)
 				)
 			)
@@ -7417,7 +7417,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "7e8206e8-6997-4633-be05-79e59a2d4142")
-		(property "Reference" "U3"
+		(property "Reference" "SW202"
 			(at 45.72 55.88 0)
 			(effects
 				(font
@@ -7481,7 +7481,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "U3")
+					(reference "SW202")
 					(unit 1)
 				)
 			)
@@ -7496,7 +7496,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "827c9282-1b6c-4fbe-ab08-7d862db4ce14")
-		(property "Reference" "C14"
+		(property "Reference" "C206"
 			(at 250.444 48.768 0)
 			(effects
 				(font
@@ -7550,7 +7550,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C14")
+					(reference "C206")
 					(unit 1)
 				)
 			)
@@ -7565,7 +7565,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "84096c02-4202-4de0-aba0-1835d2044e02")
-		(property "Reference" "R15"
+		(property "Reference" "R202"
 			(at 25.4 135.636 90)
 			(effects
 				(font
@@ -7617,7 +7617,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "R15")
+					(reference "R202")
 					(unit 1)
 				)
 			)
@@ -7831,7 +7831,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "abdbf41d-212f-4fe5-bbf9-61f1636c3f7e")
-		(property "Reference" "C11"
+		(property "Reference" "C213"
 			(at 34.544 126.238 0)
 			(effects
 				(font
@@ -7885,7 +7885,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C11")
+					(reference "C213")
 					(unit 1)
 				)
 			)
@@ -7901,7 +7901,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ad12e71c-435d-4723-ad3b-c3bacf789c6d")
-		(property "Reference" "C19"
+		(property "Reference" "C209"
 			(at 270.51 72.7709 0)
 			(effects
 				(font
@@ -7955,7 +7955,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C19")
+					(reference "C209")
 					(unit 1)
 				)
 			)
@@ -8101,7 +8101,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b976d0bf-cc4d-4afb-94f2-0a2a8d1b4319")
-		(property "Reference" "R14"
+		(property "Reference" "R201"
 			(at 25.4 120.396 90)
 			(effects
 				(font
@@ -8153,7 +8153,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "R14")
+					(reference "R201")
 					(unit 1)
 				)
 			)
@@ -8633,7 +8633,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "daf84ad0-df6b-45e5-9d91-e84c23530c70")
-		(property "Reference" "C10"
+		(property "Reference" "C216"
 			(at 171.704 100.838 0)
 			(effects
 				(font
@@ -8687,7 +8687,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C10")
+					(reference "C216")
 					(unit 1)
 				)
 			)
@@ -8901,7 +8901,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ea57f481-fc4f-4df2-9cc4-f0bc8b222cca")
-		(property "Reference" "C13"
+		(property "Reference" "C204"
 			(at 250.444 24.638 0)
 			(effects
 				(font
@@ -8955,7 +8955,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C13")
+					(reference "C204")
 					(unit 1)
 				)
 			)
@@ -9102,7 +9102,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ef22bf29-9e0d-45bb-940e-1ff6df972357")
-		(property "Reference" "C3"
+		(property "Reference" "C200"
 			(at 107.95 31.75 0)
 			(effects
 				(font
@@ -9183,7 +9183,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C3")
+					(reference "C200")
 					(unit 1)
 				)
 			)
@@ -9199,7 +9199,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f2986947-f4b8-4748-b28a-3c32af4875df")
-		(property "Reference" "L1"
+		(property "Reference" "L200"
 			(at 111.76 20.32 90)
 			(effects
 				(font
@@ -9287,7 +9287,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "L1")
+					(reference "L200")
 					(unit 1)
 				)
 			)
@@ -9367,7 +9367,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "fb78614c-8f1f-430f-a246-aed5a0fb8e50")
-		(property "Reference" "C15"
+		(property "Reference" "C208"
 			(at 250.444 72.898 0)
 			(effects
 				(font
@@ -9421,7 +9421,7 @@
 		(instances
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "C15")
+					(reference "C208")
 					(unit 1)
 				)
 			)
