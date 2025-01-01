@@ -33,6 +33,10 @@
 #include "ring_buf.h"
 #include "usb_headset_settings.h"
 
+#include "ssd1306.h"
+#include "ssd1306_fonts.h"
+
+#include "usb_hid_status.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,8 +46,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define MIC_HI2S hi2s3
-#define SPK_HI2S hi2s2
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -53,6 +56,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
+DMA_HandleTypeDef hdma_i2c1_tx;
 
 I2S_HandleTypeDef hi2s2;
 I2S_HandleTypeDef hi2s3;
@@ -60,6 +64,8 @@ DMA_HandleTypeDef hdma_spi2_tx;
 DMA_HandleTypeDef hdma_spi3_rx;
 
 TIM_HandleTypeDef htim3;
+
+UART_HandleTypeDef huart1;
 
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
@@ -83,12 +89,15 @@ uint32_t spk_i2s_buf[SAMPLE_BUFFER_SIZE * 2];
 // Buffer for microphone data
 uint32_t mic_usb_24b_buffer[SAMPLE_BUFFER_SIZE];
 uint16_t mic_usb_16b_buffer[SAMPLE_BUFFER_SIZE];
-uint8_t mic_usb_read_buf[SAMPLE_BUFFER_SIZE * 2 * 4 * 2]; // Max size of audio sample is  2 * 4. 2 Channels, 4 byte width sample
 uint32_t mic_i2s_buf[SAMPLE_BUFFER_SIZE * 2];
 uint32_t mic_i2s_read_buffer[SAMPLE_BUFFER_SIZE];
 uint32_t num_of_mic_samples;
 
 uint32_t get_num_of_mic_samples();
+
+usb_hid_status_t hid_status;
+void check_buttons(void);
+void usb_hid_task(void);
 
 void led_blinking_task(void);
 
@@ -134,6 +143,7 @@ uint32_t empty_mic_dma(uint32_t *dma_buffer_p,
 		uint32_t sizeof_half_dma_buffer_in_words);
 
 void status_update_task(void);
+void display_ssd1306_info(void);
 
 /* USER CODE END PV */
 
@@ -147,6 +157,7 @@ static void MX_USB_OTG_FS_PCD_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_I2S3_Init(void);
 static void MX_TIM3_Init(void);
+static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -194,6 +205,7 @@ int main(void)
   MX_I2C1_Init();
   MX_I2S3_Init();
   MX_TIM3_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
 	current_settings.spk_sample_rate = I2S_SPK_RATE_DEF;
@@ -231,12 +243,18 @@ int main(void)
 				current_settings.spk_mute[i], current_settings.spk_volume[i]);
 	}
 
-	//HAL_GPIO_WritePin(LED_MIC_MUTE_GPIO_Port, LED_MIC_MUTE_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(LED_MIC_MUTE_GPIO_Port, LED_MIC_MUTE_Pin, GPIO_PIN_SET);
 
 	usb_headset_init();
 	refresh_i2s_connections();
 
 	TU_LOG1("Headset running\r\n");
+
+	// Init SSD
+	ssd1306_Init();
+
+	memset(&hid_status, 0x0, sizeof(hid_status));
+	HAL_TIM_Encoder_Start_IT(&htim3, TIM_CHANNEL_ALL);
 
   /* USER CODE END 2 */
 
@@ -246,6 +264,10 @@ int main(void)
 		usb_headset_task(); // TinyUSB device task
 		led_blinking_task();
 		status_update_task();
+		usb_hid_task();
+
+		ssd1306_DMA_task();
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -405,7 +427,7 @@ static void MX_I2S3_Init(void)
   hi2s3.Init.Mode = I2S_MODE_MASTER_RX;
   hi2s3.Init.Standard = I2S_STANDARD_PHILIPS;
   hi2s3.Init.DataFormat = I2S_DATAFORMAT_32B;
-  hi2s3.Init.MCLKOutput = I2S_MCLKOUTPUT_ENABLE;
+  hi2s3.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
   hi2s3.Init.AudioFreq = I2S_AUDIOFREQ_48K;
   hi2s3.Init.CPOL = I2S_CPOL_LOW;
   hi2s3.Init.ClockSource = I2S_CLOCK_PLL;
@@ -470,6 +492,39 @@ static void MX_TIM3_Init(void)
 }
 
 /**
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
+
+}
+
+/**
   * @brief USB_OTG_FS Initialization Function
   * @param None
   * @retval None
@@ -517,6 +572,9 @@ static void MX_DMA_Init(void)
   /* DMA1_Stream0_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
+  /* DMA1_Stream1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream1_IRQn);
   /* DMA1_Stream4_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream4_IRQn);
@@ -543,12 +601,40 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(ONBOARD_LED_GPIO_Port, ONBOARD_LED_Pin, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(LED_MIC_MUTE_GPIO_Port, LED_MIC_MUTE_Pin, GPIO_PIN_RESET);
+
   /*Configure GPIO pin : ONBOARD_LED_Pin */
   GPIO_InitStruct.Pin = ONBOARD_LED_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(ONBOARD_LED_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : LED_MIC_MUTE_Pin */
+  GPIO_InitStruct.Pin = LED_MIC_MUTE_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(LED_MIC_MUTE_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : USR_MIC_MUTE_BTN_Pin */
+  GPIO_InitStruct.Pin = USR_MIC_MUTE_BTN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(USR_MIC_MUTE_BTN_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : USR_SPK_MUTE_BTN_Pin */
+  GPIO_InitStruct.Pin = USR_SPK_MUTE_BTN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(USR_SPK_MUTE_BTN_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : USR_SCAN_NEXT_BTN_Pin USR_SCAN_PREV_BTN_Pin USR_PLAY_PAUSE_BTN_Pin */
+  GPIO_InitStruct.Pin = USR_SCAN_NEXT_BTN_Pin|USR_SCAN_PREV_BTN_Pin|USR_PLAY_PAUSE_BTN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
@@ -559,18 +645,18 @@ static void MX_GPIO_Init(void)
 void refresh_i2s_connections(void) {
 	HAL_I2S_StateTypeDef dma_state;
 	// Stop speaker DMA
-	dma_state = HAL_I2S_GetState(&SPK_HI2S);
+	dma_state = HAL_I2S_GetState(&hi2s2);
 	if (dma_state != HAL_I2S_STATE_READY) {
-		HAL_StatusTypeDef stop_status = HAL_I2S_DMAStop(&SPK_HI2S);
+		HAL_StatusTypeDef stop_status = HAL_I2S_DMAStop(&hi2s2);
 		if (stop_status != HAL_OK) {
 			Error_Handler();
 		}
 	}
 
 	// Stop microphone DMA
-	dma_state = HAL_I2S_GetState(&MIC_HI2S);
+	dma_state = HAL_I2S_GetState(&hi2s3);
 	if (dma_state != HAL_I2S_STATE_READY) {
-		HAL_StatusTypeDef stop_status = HAL_I2S_DMAStop(&MIC_HI2S);
+		HAL_StatusTypeDef stop_status = HAL_I2S_DMAStop(&hi2s3);
 		if (stop_status != HAL_OK) {
 			Error_Handler();
 		}
@@ -623,13 +709,13 @@ void refresh_i2s_connections(void) {
 			current_settings.samples_in_i2s_frame_min * 2;
 
 	// Run transmit DMA
-	HAL_StatusTypeDef tx_status = HAL_I2S_Transmit_DMA(&SPK_HI2S, spk_i2s_buf,
+	HAL_StatusTypeDef tx_status = HAL_I2S_Transmit_DMA(&hi2s2, spk_i2s_buf,
 			num_of_samples_in_buffer);
 	if (tx_status != HAL_OK) {
 		Error_Handler();
 	}
 
-	HAL_StatusTypeDef rx_status = HAL_I2S_Receive_DMA(&MIC_HI2S, mic_i2s_buf,
+	HAL_StatusTypeDef rx_status = HAL_I2S_Receive_DMA(&hi2s3, mic_i2s_buf,
 			num_of_samples_in_buffer);
 	if (rx_status != HAL_OK) {
 		Error_Handler();
@@ -637,23 +723,23 @@ void refresh_i2s_connections(void) {
 }
 
 HAL_StatusTypeDef refresh_i2s_spk(void) {
-	HAL_StatusTypeDef status = HAL_I2S_DeInit(&SPK_HI2S);
+	HAL_StatusTypeDef status = HAL_I2S_DeInit(&hi2s2);
 	if (status != HAL_OK)
 		return status;
 
-	SPK_HI2S.Instance = SPI2;
-	SPK_HI2S.Init.Mode = I2S_MODE_MASTER_TX;
-	SPK_HI2S.Init.Standard = I2S_STANDARD_PHILIPS;
-	SPK_HI2S.Init.DataFormat =
+	hi2s2.Instance = SPI2;
+	hi2s2.Init.Mode = I2S_MODE_MASTER_TX;
+	hi2s2.Init.Standard = I2S_STANDARD_PHILIPS;
+	hi2s2.Init.DataFormat =
 			(current_settings.spk_resolution == 16) ?
 			I2S_DATAFORMAT_16B :
 														I2S_DATAFORMAT_32B; //I2S_DATAFORMAT_32B;
-	SPK_HI2S.Init.MCLKOutput = I2S_MCLKOUTPUT_ENABLE;
-	SPK_HI2S.Init.AudioFreq = current_settings.spk_sample_rate; //I2S_AUDIOFREQ_48K;
-	SPK_HI2S.Init.CPOL = I2S_CPOL_LOW;
-	SPK_HI2S.Init.ClockSource = I2S_CLOCK_PLL;
-	SPK_HI2S.Init.FullDuplexMode = I2S_FULLDUPLEXMODE_DISABLE;
-	if (HAL_I2S_Init(&SPK_HI2S) != HAL_OK) {
+	hi2s2.Init.MCLKOutput = I2S_MCLKOUTPUT_ENABLE;
+	hi2s2.Init.AudioFreq = current_settings.spk_sample_rate; //I2S_AUDIOFREQ_48K;
+	hi2s2.Init.CPOL = I2S_CPOL_LOW;
+	hi2s2.Init.ClockSource = I2S_CLOCK_PLL;
+	hi2s2.Init.FullDuplexMode = I2S_FULLDUPLEXMODE_DISABLE;
+	if (HAL_I2S_Init(&hi2s2) != HAL_OK) {
 		Error_Handler();
 	}
 
@@ -661,27 +747,27 @@ HAL_StatusTypeDef refresh_i2s_spk(void) {
 }
 
 HAL_StatusTypeDef refresh_i2s_mic(void) {
-	HAL_StatusTypeDef status = HAL_I2S_DeInit(&MIC_HI2S);
+	HAL_StatusTypeDef status = HAL_I2S_DeInit(&hi2s3);
 	if (status != HAL_OK)
 		return status;
 
-	MIC_HI2S.Instance = SPI3;
-	MIC_HI2S.Init.Mode = I2S_MODE_MASTER_RX;
-	MIC_HI2S.Init.Standard = I2S_STANDARD_PHILIPS;
-	MIC_HI2S.Init.DataFormat = I2S_DATAFORMAT_32B;
-	MIC_HI2S.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
-	MIC_HI2S.Init.AudioFreq = current_settings.spk_sample_rate; //I2S_AUDIOFREQ_48K;
-	MIC_HI2S.Init.CPOL = I2S_CPOL_LOW;
-	MIC_HI2S.Init.ClockSource = I2S_CLOCK_PLL;
-	MIC_HI2S.Init.FullDuplexMode = I2S_FULLDUPLEXMODE_DISABLE;
-	if (HAL_I2S_Init(&MIC_HI2S) != HAL_OK) {
+	hi2s3.Instance = SPI3;
+	hi2s3.Init.Mode = I2S_MODE_MASTER_RX;
+	hi2s3.Init.Standard = I2S_STANDARD_PHILIPS;
+	hi2s3.Init.DataFormat = I2S_DATAFORMAT_32B;
+	hi2s3.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
+	hi2s3.Init.AudioFreq = current_settings.spk_sample_rate; //I2S_AUDIOFREQ_48K;
+	hi2s3.Init.CPOL = I2S_CPOL_LOW;
+	hi2s3.Init.ClockSource = I2S_CLOCK_PLL;
+	hi2s3.Init.FullDuplexMode = I2S_FULLDUPLEXMODE_DISABLE;
+	if (HAL_I2S_Init(&hi2s3) != HAL_OK) {
 		Error_Handler();
 	}
 
 	return HAL_OK;
 }
 
-HAL_StatusTypeDef refresh_clk(void) {
+HAL_StatusTypeDef refresh_clk(void){
 //	typedef struct I2S_CLK_CONFIG_ {
 //		uint32_t N;
 //		uint32_t R;
@@ -870,11 +956,11 @@ void usb_headset_tud_audio_rx_done_pre_read_handler(uint8_t rhport,
 	}
 }
 
-uint32_t get_num_of_mic_samples() {
+uint32_t get_num_of_mic_samples(){
 	static uint32_t format_44100_khz_counter = 0;
-	if (current_settings.spk_sample_rate == 44100) {
+	if(current_settings.spk_sample_rate == 44100){
 		format_44100_khz_counter++;
-		if (format_44100_khz_counter >= 9) {
+		if(format_44100_khz_counter >= 9){
 			format_44100_khz_counter = 0;
 			return 45;
 		} else {
@@ -994,7 +1080,7 @@ int spk_machine_i2s_write_stream(uint32_t *buf_in, uint32_t size) {
 
 	// Not allow buffer overflow
 	uint16_t available_space = ringbuf_available_space(&spk_ring_buffer);
-	if (available_space <= size) {
+	if(available_space <= size){
 		return 0;
 	}
 
@@ -1061,7 +1147,8 @@ void HAL_I2S_RxHalfCpltCallback(I2S_HandleTypeDef *hi2s) {
 
 void HAL_I2S_RxCpltCallback(I2S_HandleTypeDef *hi2s) {
 	int num_of_words_empty = current_settings.samples_in_i2s_frame_min;
-	empty_mic_dma(&mic_i2s_buf[num_of_words_empty], num_of_words_empty);
+	empty_mic_dma(&mic_i2s_buf[num_of_words_empty],
+			num_of_words_empty);
 }
 
 /**
@@ -1129,6 +1216,9 @@ void status_update_task(void) {
 
 	uint32_t cur_time_ms = board_millis();
 
+	HAL_GPIO_WritePin(LED_MIC_MUTE_GPIO_Port, LED_MIC_MUTE_Pin,
+			current_settings.usr_mic_mute ? GPIO_PIN_SET : GPIO_PIN_RESET);
+
 	// Update status once per second
 	if (cur_time_ms - prev_status_update__ms < 100)
 		return;
@@ -1137,8 +1227,328 @@ void status_update_task(void) {
 
 	if (current_settings.status_updated == true) {
 		current_settings.status_updated = false;
+		display_ssd1306_info();
 	}
 }
+
+void display_ssd1306_info(void) {
+	char fmt_tmp_str[20] = "";
+
+	ssd1306_Fill(Black);
+
+	switch (current_settings.spk_blink_interval_ms) {
+	case BLINK_NOT_MOUNTED: {
+		ssd1306_SetCursor(4, 0);
+		ssd1306_WriteString("Spk not mounted", Font_6x8, White);
+		break;
+	}
+	case BLINK_SUSPENDED: {
+		ssd1306_SetCursor(4, 0);
+		ssd1306_WriteString("Spk suspended", Font_6x8, White);
+		break;
+	}
+	case BLINK_MOUNTED: {
+		ssd1306_SetCursor(4, 0);
+		ssd1306_WriteString("Spk mounted", Font_6x8, White);
+		break;
+	}
+	case BLINK_STREAMING: {
+		char spk_streaming_str[20] = "Spk stream: ";
+		memset(fmt_tmp_str, 0x0, sizeof(fmt_tmp_str));
+
+		itoa(current_settings.spk_resolution, fmt_tmp_str, 10);
+		strcat(spk_streaming_str, fmt_tmp_str);
+		strcat(spk_streaming_str, " bit");
+
+		ssd1306_SetCursor(4, 0);
+		ssd1306_WriteString(spk_streaming_str, Font_6x8, White);
+		break;
+	}
+	default: {
+		ssd1306_SetCursor(4, 0);
+		ssd1306_WriteString("Spk unknown", Font_6x8, White);
+		break;
+	}
+	}
+
+	switch (current_settings.mic_blink_interval_ms) {
+	case BLINK_NOT_MOUNTED: {
+		ssd1306_SetCursor(4, 8);
+		ssd1306_WriteString("Mic not mounted", Font_6x8, White);
+		break;
+	}
+	case BLINK_SUSPENDED: {
+		ssd1306_SetCursor(4, 8);
+		ssd1306_WriteString("Mic suspended", Font_6x8, White);
+		break;
+	}
+	case BLINK_MOUNTED: {
+		ssd1306_SetCursor(4, 8);
+		ssd1306_WriteString("Mic mounted", Font_6x8, White);
+		break;
+	}
+	case BLINK_STREAMING: {
+		char mic_streaming_str[20] = "Mic stream: ";
+		memset(fmt_tmp_str, 0x0, sizeof(fmt_tmp_str));
+
+		itoa(current_settings.mic_resolution, fmt_tmp_str, 10);
+		strcat(mic_streaming_str, fmt_tmp_str);
+		strcat(mic_streaming_str, " bit");
+
+		ssd1306_SetCursor(4, 8);
+		ssd1306_WriteString(mic_streaming_str, Font_6x8, White);
+		break;
+	}
+	default: {
+		ssd1306_SetCursor(4, 8);
+		ssd1306_WriteString("Mic unknown", Font_6x8, White);
+		break;
+	}
+	}
+
+	{
+		char freq_str[20] = "Freq: ";
+
+		memset(fmt_tmp_str, 0x0, sizeof(fmt_tmp_str));
+
+		itoa((current_settings.spk_sample_rate), fmt_tmp_str, 10);
+		strcat(freq_str, fmt_tmp_str);
+		strcat(freq_str, " Hz");
+
+		ssd1306_SetCursor(4, 16);
+		ssd1306_WriteString(freq_str, Font_6x8, White);
+
+	}
+
+	{
+		char vol_m_str[20] = "Vol M:";
+		char vol_l_str[20] = "Vol L:";
+		char vol_r_str[20] = "Vol R:";
+
+		memset(fmt_tmp_str, 0x0, sizeof(fmt_tmp_str));
+		itoa((current_settings.spk_volume[0] >> ENC_NUM_OF_FP_BITS),
+				fmt_tmp_str, 10);
+		strcat(vol_m_str, fmt_tmp_str);
+
+		memset(fmt_tmp_str, 0x0, sizeof(fmt_tmp_str));
+		itoa((current_settings.spk_volume[1] >> ENC_NUM_OF_FP_BITS),
+				fmt_tmp_str, 10);
+		strcat(vol_l_str, fmt_tmp_str);
+
+		memset(fmt_tmp_str, 0x0, sizeof(fmt_tmp_str));
+		itoa((current_settings.spk_volume[2] >> ENC_NUM_OF_FP_BITS),
+				fmt_tmp_str, 10);
+		strcat(vol_r_str, fmt_tmp_str);
+
+		ssd1306_SetCursor(4, 24);
+		ssd1306_WriteString(vol_m_str, Font_6x8, White);
+		ssd1306_SetCursor(4, 32);
+		ssd1306_WriteString(vol_l_str, Font_6x8, White);
+		ssd1306_SetCursor(4, 40);
+		ssd1306_WriteString(vol_r_str, Font_6x8, White);
+
+		char mute_m_str[20] = "Mute M:";
+		char mute_l_str[20] = "Mute L:";
+		char mute_r_str[20] = "Mute R:";
+
+		strcat(mute_m_str, (current_settings.spk_mute[0] ? "T" : "F"));
+		strcat(mute_l_str, (current_settings.spk_mute[1] ? "T" : "F"));
+		strcat(mute_r_str, (current_settings.spk_mute[2] ? "T" : "F"));
+
+		ssd1306_SetCursor(68, 24);
+		ssd1306_WriteString(mute_m_str, Font_6x8, White);
+		ssd1306_SetCursor(68, 32);
+		ssd1306_WriteString(mute_l_str, Font_6x8, White);
+		ssd1306_SetCursor(68, 40);
+		ssd1306_WriteString(mute_r_str, Font_6x8, White);
+
+		char hid_stat_str[20] = "HID susp: ";
+		strcat(hid_stat_str, (tud_suspended() ? "T" : "F"));
+		strcat(hid_stat_str, ", rdy: ");
+		strcat(hid_stat_str, (tud_hid_ready() ? "T" : "F"));
+
+		ssd1306_SetCursor(4, 48);
+		ssd1306_WriteString(hid_stat_str, Font_6x8, White);
+
+	}
+	ssd1306_UpdateScreen_DMA();
+}
+
+//-----------------------------------------------------------------
+//                 USB HID
+//-----------------------------------------------------------------
+
+// Invoked when received GET_REPORT control request
+// Application must fill buffer report's content and return its length.
+// Return zero will cause the stack to STALL request
+uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id,
+		hid_report_type_t report_type, uint8_t *buffer, uint16_t reqlen) {
+	// TODO not Implemented
+	(void) instance;
+	(void) report_id;
+	(void) report_type;
+	(void) buffer;
+	(void) reqlen;
+
+	return 0;
+}
+
+// Invoked when received SET_REPORT control request or
+// received data on OUT endpoint ( Report ID = 0, Type = 0 )
+void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id,
+		hid_report_type_t report_type, uint8_t const *buffer, uint16_t bufsize) {
+	(void) instance;
+
+//  if (report_type == HID_REPORT_TYPE_OUTPUT)
+//  {
+//    // Set keyboard LED e.g Capslock, Numlock etc...
+//    if (report_id == REPORT_ID_KEYBOARD)
+//    {
+//      // bufsize should be (at least) 1
+//      if ( bufsize < 1 ) return;
+//
+//      uint8_t const kbd_leds = buffer[0];
+//
+//      if (kbd_leds & KEYBOARD_LED_CAPSLOCK)
+//      {
+//        // Capslock On: disable blink, turn led on
+//        blink_interval_ms = 0;
+//        board_led_write(true);
+//      }else
+//      {
+//        // Caplocks Off: back to normal blink
+//        board_led_write(false);
+//        blink_interval_ms = BLINK_MOUNTED;
+//      }
+//    }
+//  }
+}
+
+void check_buttons(void) {
+	//--------------
+	// Checking play/pause, scan prev/next buttons
+	//--------------
+	GPIO_PinState play_pause_pin_state = HAL_GPIO_ReadPin(
+	USR_PLAY_PAUSE_BTN_GPIO_Port, USR_PLAY_PAUSE_BTN_Pin);
+	GPIO_PinState scan_prev_pin_state = HAL_GPIO_ReadPin(
+	USR_SCAN_PREV_BTN_GPIO_Port, USR_SCAN_PREV_BTN_Pin);
+	GPIO_PinState scan_next_pin_state = HAL_GPIO_ReadPin(
+	USR_SCAN_NEXT_BTN_GPIO_Port, USR_SCAN_NEXT_BTN_Pin);
+
+	if ((play_pause_pin_state == GPIO_PIN_SET)
+			&& (hid_status.btn_play_pause_status == GPIO_PIN_RESET)) {
+		hid_status.custom_ctrl_scan_code_updated = true;
+		hid_status.cur_custom_ctrl_scan_code =
+		MY_TUD_HID_CONSUMER_PLAY_PAUSE_CODE;
+	}
+	hid_status.btn_play_pause_status = play_pause_pin_state;
+
+	if ((scan_prev_pin_state == GPIO_PIN_SET)
+			&& (hid_status.btn_scan_prev_status == GPIO_PIN_RESET)) {
+		hid_status.custom_ctrl_scan_code_updated = true;
+		hid_status.cur_custom_ctrl_scan_code =
+		MY_TUD_HID_CONSUMER_SCAN_PREVIOUS_CODE;
+	}
+	hid_status.btn_scan_next_status = scan_prev_pin_state;
+
+	if ((scan_next_pin_state == GPIO_PIN_SET)
+			&& (hid_status.btn_scan_next_status == GPIO_PIN_RESET)) {
+		hid_status.custom_ctrl_scan_code_updated = true;
+		hid_status.cur_custom_ctrl_scan_code =
+		MY_TUD_HID_CONSUMER_SCAN_NEXT_CODE;
+	}
+	hid_status.btn_scan_next_status = scan_next_pin_state;
+	//--------------
+
+	//--------------
+	// Checking MIC mute button
+	//--------------
+	GPIO_PinState mic_mute_pin_state = HAL_GPIO_ReadPin(
+	USR_MIC_MUTE_BTN_GPIO_Port, USR_MIC_MUTE_BTN_Pin);
+	if ((mic_mute_pin_state == GPIO_PIN_SET)
+			&& (hid_status.btn_mic_mute_status == GPIO_PIN_RESET)) {
+		current_settings.usr_mic_mute = !current_settings.usr_mic_mute;
+	}
+	hid_status.btn_mic_mute_status = mic_mute_pin_state;
+
+	//--------------
+	// Checking SPK mute button
+	//--------------
+	GPIO_PinState spk_mute_pin_state = HAL_GPIO_ReadPin(
+	USR_SPK_MUTE_BTN_GPIO_Port, USR_SPK_MUTE_BTN_Pin);
+	if ((spk_mute_pin_state == GPIO_PIN_RESET)
+			&& (hid_status.btn_spk_mute_status == GPIO_PIN_SET)) {
+		hid_status.cur_custom_ctrl_scan_code = MY_TUD_HID_CONSUMER_MUTE_CODE;
+		hid_status.custom_ctrl_scan_code_updated = true;
+	}
+	hid_status.btn_spk_mute_status = spk_mute_pin_state;
+}
+
+void usb_hid_task(void) {
+	static uint32_t prev_hid_tasc_call__ms = 0;
+	static bool prev_media_report_is_not_empty = false;
+
+	uint32_t cur_time_ms = board_millis();
+
+	// Update status once per second
+	if (cur_time_ms - prev_hid_tasc_call__ms < 50)
+		return;
+
+	//--------------
+	// Checking rotary encoder
+	//--------------
+	int16_t volume_rotary_encoder_cntr = __HAL_TIM_GET_COUNTER(&htim3);
+	if (volume_rotary_encoder_cntr
+			!= hid_status.volume_rotary_encoder_cntr_prev) {
+		hid_status.cur_custom_ctrl_scan_code =
+				(volume_rotary_encoder_cntr
+						> hid_status.volume_rotary_encoder_cntr_prev) ?
+						MY_TUD_HID_CONSUMER_VOLUME_INCREMENT_CODE :
+						MY_TUD_HID_CONSUMER_VOLUME_DECREMENT_CODE;
+
+		hid_status.custom_ctrl_scan_code_updated = true;
+
+		hid_status.volume_rotary_encoder_cntr_prev = volume_rotary_encoder_cntr;
+	}
+	//--------------
+
+	//--------------
+	// Checking buttons
+	//--------------
+	check_buttons();
+	//--------------
+
+	// Remote wakeup
+	if (tud_suspended() && (hid_status.cur_custom_ctrl_scan_code != 0x0)
+			&& (hid_status.custom_ctrl_scan_code_updated == true)) {
+		// Wake up host if we are in suspend mode
+		// and REMOTE_WAKEUP feature is enabled by host
+		tud_remote_wakeup();
+	} else {
+		if (!tud_hid_ready())
+			return;
+
+		if (hid_status.custom_ctrl_scan_code_updated == true) {
+			tud_hid_report(REPORT_ID_CONSUMER_CONTROL,
+					&(hid_status.cur_custom_ctrl_scan_code),
+					sizeof(hid_status.cur_custom_ctrl_scan_code));
+
+			hid_status.cur_custom_ctrl_scan_code = 0x0;
+			hid_status.custom_ctrl_scan_code_updated = false;
+			prev_media_report_is_not_empty = true;
+		} else {
+			if (prev_media_report_is_not_empty) {
+				uint8_t empty_scan_code = 0x0;
+				tud_hid_report(REPORT_ID_CONSUMER_CONTROL, &(empty_scan_code),
+						sizeof(empty_scan_code));
+				prev_media_report_is_not_empty = false;
+			}
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
 
 /* USER CODE END 4 */
 

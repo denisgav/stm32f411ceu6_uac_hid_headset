@@ -60,6 +60,18 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define ONBOARD_LED_Pin GPIO_PIN_13
 #define ONBOARD_LED_GPIO_Port GPIOC
+#define LED_MIC_MUTE_Pin GPIO_PIN_1
+#define LED_MIC_MUTE_GPIO_Port GPIOA
+#define USR_MIC_MUTE_BTN_Pin GPIO_PIN_2
+#define USR_MIC_MUTE_BTN_GPIO_Port GPIOA
+#define USR_SPK_MUTE_BTN_Pin GPIO_PIN_5
+#define USR_SPK_MUTE_BTN_GPIO_Port GPIOA
+#define USR_SCAN_NEXT_BTN_Pin GPIO_PIN_0
+#define USR_SCAN_NEXT_BTN_GPIO_Port GPIOB
+#define USR_SCAN_PREV_BTN_Pin GPIO_PIN_1
+#define USR_SCAN_PREV_BTN_GPIO_Port GPIOB
+#define USR_PLAY_PAUSE_BTN_Pin GPIO_PIN_2
+#define USR_PLAY_PAUSE_BTN_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 #ifndef I2S_SPK_RATE_DEF
