@@ -448,6 +448,207 @@
 				)
 			)
 		)
+		(symbol "Connector:Conn_01x03_Pin"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x03_Pin"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x03, script generated"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x03_Pin_1_1"
+				(polyline
+					(pts
+						(xy 1.27 -2.54) (xy 0.8636 -2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy 0.8636 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 2.54) (xy 0.8636 2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 0.8636 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Connector_Audio:AudioJack3_Ground_SwitchTR"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -2330,6 +2531,12 @@
 		(uuid "715599b3-a2c2-4c98-8b96-427c6eece6f3")
 	)
 	(junction
+		(at 50.8 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7817ed39-289c-4f2e-b869-a03ce2a83a65")
+	)
+	(junction
 		(at 39.37 76.2)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2346,6 +2553,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8f40a3e7-aeca-4109-8f20-df06e4c221b5")
+	)
+	(junction
+		(at 50.8 123.19)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "922ea26f-8dfd-470b-bff5-c6b0043df3e9")
 	)
 	(junction
 		(at 168.91 39.37)
@@ -2477,6 +2690,16 @@
 	)
 	(wire
 		(pts
+			(xy 71.12 115.57) (xy 115.57 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "01858759-0203-4311-a24a-a8fdb71ff401")
+	)
+	(wire
+		(pts
 			(xy 39.37 74.93) (xy 52.07 74.93)
 		)
 		(stroke
@@ -2564,6 +2787,16 @@
 			(type default)
 		)
 		(uuid "0f0851f8-fc49-40b5-9cf6-e80d4a55b83a")
+	)
+	(wire
+		(pts
+			(xy 50.8 123.19) (xy 71.12 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0fc7db1b-5c47-4616-bd06-ebc050a894e2")
 	)
 	(wire
 		(pts
@@ -3017,6 +3250,16 @@
 	)
 	(wire
 		(pts
+			(xy 71.12 138.43) (xy 71.12 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4e614eba-e0c7-4dba-922d-5965690ee056")
+	)
+	(wire
+		(pts
 			(xy 250.19 88.9) (xy 250.19 90.17)
 		)
 		(stroke
@@ -3064,6 +3307,16 @@
 			(type default)
 		)
 		(uuid "57b96c6a-054a-4e54-8407-b168c4ee5649")
+	)
+	(wire
+		(pts
+			(xy 111.76 128.27) (xy 115.57 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "589a576a-8df3-4138-8043-d469de12eade")
 	)
 	(wire
 		(pts
@@ -3124,6 +3377,16 @@
 			(type default)
 		)
 		(uuid "60d4deb8-1f6c-4f6c-867d-ba2cd5be1a35")
+	)
+	(wire
+		(pts
+			(xy 50.8 138.43) (xy 71.12 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "664b3e8f-002f-4308-97e0-2a2ce093a4f9")
 	)
 	(wire
 		(pts
@@ -3224,6 +3487,16 @@
 			(type default)
 		)
 		(uuid "77773325-79d2-4b91-841c-2999dc7555c6")
+	)
+	(wire
+		(pts
+			(xy 111.76 152.4) (xy 111.76 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "788c0587-ee5b-49dd-9779-9e62c3e70127")
 	)
 	(wire
 		(pts
@@ -3797,6 +4070,26 @@
 	)
 	(wire
 		(pts
+			(xy 71.12 152.4) (xy 111.76 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6c500d0-ea5e-4d72-8fea-ec29cad78889")
+	)
+	(wire
+		(pts
+			(xy 115.57 115.57) (xy 115.57 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c9a706a3-6537-499e-aeae-dc0179c427e3")
+	)
+	(wire
+		(pts
 			(xy 29.21 92.71) (xy 39.37 92.71)
 		)
 		(stroke
@@ -4057,6 +4350,16 @@
 	)
 	(wire
 		(pts
+			(xy 115.57 130.81) (xy 115.57 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f9b7c19a-5ed3-406b-92a0-6adee3a5b507")
+	)
+	(wire
+		(pts
 			(xy 236.22 21.59) (xy 250.19 21.59)
 		)
 		(stroke
@@ -4064,6 +4367,16 @@
 			(type default)
 		)
 		(uuid "fa7a5899-f0a4-4169-abfe-effcb839ce57")
+	)
+	(wire
+		(pts
+			(xy 71.12 123.19) (xy 71.12 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fdda8655-664e-4ad5-8ec2-65e2c75da703")
 	)
 	(wire
 		(pts
@@ -4101,7 +4414,7 @@
 	)
 	(rectangle
 		(start 13.97 111.76)
-		(end 114.3 157.48)
+		(end 138.43 157.48)
 		(stroke
 			(width 0)
 			(type default)
@@ -5379,7 +5692,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 251.1552 97.79 0)
 			(effects
 				(font
@@ -5415,7 +5728,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "CL21B104KBCNNNC"
+		(property "Manufacturer Part Number" "CL05B104KO5NNNC"
 			(at 250.19 93.98 0)
 			(effects
 				(font
@@ -7406,7 +7719,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 251.1552 54.61 0)
 			(effects
 				(font
@@ -7442,7 +7755,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "CL21B104KBCNNNC"
+		(property "Manufacturer Part Number" "CL05B104KO5NNNC"
 			(at 250.19 50.8 0)
 			(effects
 				(font
@@ -8341,6 +8654,79 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Conn_01x03_Pin")
+		(at 120.65 128.27 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c0b4ca3b-a132-42ac-aafb-86c4656827d1")
+		(property "Reference" "J201"
+			(at 121.92 126.9999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "Conn_01x03_Pin"
+			(at 121.92 129.5399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
+			(at 120.65 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 120.65 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x03, script generated"
+			(at 120.65 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "d2060d59-749f-46e0-9ea8-1168b7db2ef9")
+		)
+		(pin "3"
+			(uuid "457aafbf-7ba0-472e-8965-f69b2f8db7be")
+		)
+		(pin "1"
+			(uuid "98f87123-236f-4a77-bd5b-c1d3117400f2")
+		)
+		(instances
+			(project ""
+				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
+					(reference "J201")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 104.14 129.54 0)
 		(mirror y)
@@ -9021,7 +9407,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 251.1552 30.48 0)
 			(effects
 				(font
@@ -9057,7 +9443,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "CL21B104KBCNNNC"
+		(property "Manufacturer Part Number" "CL05B104KO5NNNC"
 			(at 250.19 26.67 0)
 			(effects
 				(font
@@ -9414,6 +9800,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 115.57 137.16 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f907f66b-f584-491c-ac09-56a0ee9abd24")
+		(property "Reference" "#PWR068"
+			(at 115.57 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 115.57 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 115.57 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bf9c52da-6a4c-48bd-93e8-a1ef9d5142fb")
+		)
+		(instances
+			(project "stm32f411ceu6_pcm5102_shield"
+				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
+					(reference "#PWR068")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 250.19 74.93 0)
 		(unit 1)
@@ -9440,7 +9893,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 251.1552 78.74 0)
 			(effects
 				(font
@@ -9476,7 +9929,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "CL21B104KBCNNNC"
+		(property "Manufacturer Part Number" "CL05B104KO5NNNC"
 			(at 250.19 74.93 0)
 			(effects
 				(font

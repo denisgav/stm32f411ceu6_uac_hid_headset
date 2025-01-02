@@ -1,4 +1,4 @@
-24423062786639530
+24423062788042828
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -98606,8 +98606,8 @@ AudioJack_3.5mm_PJ311
 
 
 0
-0
-0
+6
+5
 stm32f401_pcm5102_shiled_lib
 SW_DPDT_XLX
 DPDT Latching
