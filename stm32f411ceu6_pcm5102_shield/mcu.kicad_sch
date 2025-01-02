@@ -1196,6 +1196,126 @@
 				)
 			)
 		)
+		(symbol "power:+3.3VA"
+			(power)
+			(pin_numbers hide)
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "+3.3VA"
+				(at 0 3.556 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+3.3VA\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "+3.3VA_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+3.3VA_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "power:+5V"
 			(power)
 			(pin_numbers hide)
@@ -6366,6 +6486,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3.3VA")
+		(at 97.79 172.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "533f3221-e5a7-46bb-9ae1-b70d875160eb")
+		(property "Reference" "#PWR058"
+			(at 97.79 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3VA"
+			(at 97.79 168.148 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 97.79 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 97.79 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3VA\""
+			(at 97.79 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c9aba6e0-c31b-479a-8f45-1bd628d9dabb")
+		)
+		(instances
+			(project "stm32f411ceu6_pcm5102_shield"
+				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/850fb9da-5125-4af4-b1b4-d624ecc42efc"
+					(reference "#PWR058")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 180.34 44.45 0)
 		(unit 1)
@@ -6530,16 +6715,15 @@
 	(symbol
 		(lib_name "stm32f401_pcm5102_shiled_lib:SW_PUSH_6mm_H5mm")
 		(lib_id "stm32f401_pcm5102_shiled_lib:SW_PUSH_6mm_H5mm")
-		(at 168.91 83.82 90)
+		(at 171.45 83.82 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "5d10e7d5-278d-44ae-94ff-ebdf787ef881")
 		(property "Reference" "SW101"
-			(at 175.26 83.1849 90)
+			(at 172.466 73.66 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6548,16 +6732,15 @@
 			)
 		)
 		(property "Value" "~"
-			(at 175.26 85.09 90)
+			(at 171.45 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" "stm32f401_pcm5102_shiled_lib:SW_PUSH_6mm_H5mm"
-			(at 175.768 84.074 0)
+			(at 164.592 83.566 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6566,7 +6749,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 168.91 83.82 0)
+			(at 171.45 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6575,7 +6758,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 168.91 83.82 0)
+			(at 171.45 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7469,16 +7652,15 @@
 	(symbol
 		(lib_name "stm32f401_pcm5102_shiled_lib:SW_PUSH_6mm_H5mm")
 		(lib_id "stm32f401_pcm5102_shiled_lib:SW_PUSH_6mm_H5mm")
-		(at 168.91 124.46 90)
+		(at 171.45 124.46 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "9415966c-98b0-4afa-a961-3eb62d47f3a3")
 		(property "Reference" "SW103"
-			(at 175.26 123.8249 90)
+			(at 173.228 114.046 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7487,16 +7669,15 @@
 			)
 		)
 		(property "Value" "~"
-			(at 175.26 125.73 90)
+			(at 171.45 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" "stm32f401_pcm5102_shiled_lib:SW_PUSH_6mm_H5mm"
-			(at 175.768 124.714 0)
+			(at 164.592 124.206 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7505,7 +7686,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 168.91 124.46 0)
+			(at 171.45 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7514,7 +7695,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 168.91 124.46 0)
+			(at 171.45 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7838,16 +8019,15 @@
 	(symbol
 		(lib_name "stm32f401_pcm5102_shiled_lib:SW_PUSH_6mm_H5mm")
 		(lib_id "stm32f401_pcm5102_shiled_lib:SW_PUSH_6mm_H5mm")
-		(at 213.36 83.82 90)
+		(at 215.9 83.82 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "b06ec3d1-904d-4cec-99f0-428f6a44667a")
 		(property "Reference" "SW102"
-			(at 219.71 83.1849 90)
+			(at 216.408 73.914 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7856,16 +8036,15 @@
 			)
 		)
 		(property "Value" "~"
-			(at 219.71 85.09 90)
+			(at 215.9 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" "stm32f401_pcm5102_shiled_lib:SW_PUSH_6mm_H5mm"
-			(at 220.218 84.074 0)
+			(at 209.042 83.566 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7874,7 +8053,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 213.36 83.82 0)
+			(at 215.9 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7883,7 +8062,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 213.36 83.82 0)
+			(at 215.9 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8427,72 +8606,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 97.79 172.72 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "cc850728-5729-4265-90d8-430ad0adf72b")
-		(property "Reference" "#PWR058"
-			(at 97.79 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 97.79 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 97.79 172.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 97.79 172.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 97.79 172.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "92333722-9847-4e16-89db-f137f8bbd8e3")
-		)
-		(instances
-			(project "stm32f411ceu6_pcm5102_shield"
-				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/850fb9da-5125-4af4-b1b4-d624ecc42efc"
-					(reference "#PWR058")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 228.6 134.62 0)
 		(unit 1)
@@ -8735,16 +8848,15 @@
 	(symbol
 		(lib_name "stm32f401_pcm5102_shiled_lib:SW_PUSH_6mm_H5mm")
 		(lib_id "stm32f401_pcm5102_shiled_lib:SW_PUSH_6mm_H5mm")
-		(at 217.17 120.65 90)
+		(at 219.71 120.65 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "da247471-1381-4182-9396-3d38149ffb7f")
 		(property "Reference" "SW104"
-			(at 223.52 120.0149 90)
+			(at 221.234 110.49 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8753,16 +8865,15 @@
 			)
 		)
 		(property "Value" "~"
-			(at 223.52 121.92 90)
+			(at 219.71 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" "stm32f401_pcm5102_shiled_lib:SW_PUSH_6mm_H5mm"
-			(at 224.028 120.904 0)
+			(at 212.852 120.396 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8771,7 +8882,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 217.17 120.65 0)
+			(at 219.71 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8780,7 +8891,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 217.17 120.65 0)
+			(at 219.71 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
