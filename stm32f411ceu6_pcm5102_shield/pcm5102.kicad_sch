@@ -6897,7 +6897,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_Audio:Jack_3.5mm_PJ311_Horizontal"
+		(property "Footprint" "stm32f401_pcm5102_shiled_lib:AudioJack_3.5mm_PJ311"
 			(at 91.44 125.73 0)
 			(effects
 				(font
