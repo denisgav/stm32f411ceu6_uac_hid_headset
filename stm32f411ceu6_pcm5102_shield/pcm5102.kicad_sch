@@ -1683,9 +1683,9 @@
 		)
 		(symbol "power:+5V"
 			(power)
+			(pin_numbers hide)
 			(pin_names
-				(offset 0)
-			)
+				(offset 0) hide)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1733,7 +1733,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_keywords" "global power"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1783,8 +1783,8 @@
 			(symbol "+5V_1_1"
 				(pin power_in line
 					(at 0 0 90)
-					(length 0) hide
-					(name "+5V"
+					(length 0)
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2258,22 +2258,10 @@
 		(uuid "2a06dab7-ff60-4532-afcc-2b8d9992c1e4")
 	)
 	(junction
-		(at 250.19 33.02)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2fbae212-bc10-41e5-a443-094b9e484861")
-	)
-	(junction
 		(at 39.37 44.45)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "34d6652c-7cef-45e9-86c3-1a7805d844ca")
-	)
-	(junction
-		(at 250.19 100.33)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3559022a-cdb3-4378-9ae6-a193dc5934f0")
 	)
 	(junction
 		(at 250.19 69.85)
@@ -2292,12 +2280,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3fe4e481-7309-4b65-820a-eb39121050b3")
-	)
-	(junction
-		(at 58.42 148.59)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "429907c5-7c74-49cf-b792-5ee57e90d0de")
 	)
 	(junction
 		(at 185.42 26.67)
@@ -2336,6 +2318,12 @@
 		(uuid "67d53afa-5fb7-4c72-974e-8f024bb35bed")
 	)
 	(junction
+		(at 152.4 107.95)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "694d9840-87dc-4dde-852c-3fd74aab43dc")
+	)
+	(junction
 		(at 39.37 68.58)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2360,12 +2348,6 @@
 		(uuid "8f40a3e7-aeca-4109-8f20-df06e4c221b5")
 	)
 	(junction
-		(at 250.19 81.28)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9d4bf9d7-ab83-4315-99c6-7f8ccaf1566c")
-	)
-	(junction
 		(at 168.91 39.37)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2376,12 +2358,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a83cde9d-1ced-406a-8e22-2632683ac200")
-	)
-	(junction
-		(at 250.19 57.15)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a8a989bb-8365-4c11-998b-1497a76830c2")
 	)
 	(junction
 		(at 259.08 45.72)
@@ -2465,6 +2441,10 @@
 		(at 39.37 48.26)
 		(uuid "cacb6e4e-af47-4a01-a39f-8e784a774838")
 	)
+	(no_connect
+		(at 39.37 31.75)
+		(uuid "fc25bf44-f29d-45de-b46e-69f0f39224a1")
+	)
 	(wire
 		(pts
 			(xy 168.91 41.91) (xy 168.91 43.18)
@@ -2497,26 +2477,6 @@
 	)
 	(wire
 		(pts
-			(xy 236.22 100.33) (xy 250.19 100.33)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "01d0faf7-a2e5-4dff-9a5b-db6773e98e66")
-	)
-	(wire
-		(pts
-			(xy 236.22 57.15) (xy 250.19 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "036917b0-7918-4a14-8359-1006533f3862")
-	)
-	(wire
-		(pts
 			(xy 39.37 74.93) (xy 52.07 74.93)
 		)
 		(stroke
@@ -2544,26 +2504,6 @@
 			(type default)
 		)
 		(uuid "07229013-9ec2-4d53-877b-481853809944")
-	)
-	(wire
-		(pts
-			(xy 63.5 148.59) (xy 58.42 148.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0875f418-478a-4039-8a8f-77475e0a89a5")
-	)
-	(wire
-		(pts
-			(xy 152.4 104.14) (xy 152.4 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "08d1a7ee-df1c-4e8b-9229-69b3feeaf7d5")
 	)
 	(wire
 		(pts
@@ -2607,7 +2547,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 133.35) (xy 86.36 133.35)
+			(xy 81.28 133.35) (xy 86.36 133.35)
 		)
 		(stroke
 			(width 0)
@@ -2704,6 +2644,16 @@
 			(type default)
 		)
 		(uuid "1c16345a-74c5-4ec6-8d69-9b6995405d06")
+	)
+	(wire
+		(pts
+			(xy 154.94 104.14) (xy 154.94 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e7425d7-e57c-46e7-9539-3b07e8eb41ea")
 	)
 	(wire
 		(pts
@@ -2877,16 +2827,6 @@
 	)
 	(wire
 		(pts
-			(xy 58.42 148.59) (xy 58.42 151.13)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "35105c70-4b19-42df-a42a-a39a1a290358")
-	)
-	(wire
-		(pts
 			(xy 193.04 25.4) (xy 193.04 26.67)
 		)
 		(stroke
@@ -2904,6 +2844,26 @@
 			(type default)
 		)
 		(uuid "36e67d78-7dfd-45d6-9879-4f3cda10d617")
+	)
+	(wire
+		(pts
+			(xy 149.86 104.14) (xy 149.86 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3753db3d-d9ec-4244-8d34-62d10a1e8d39")
+	)
+	(wire
+		(pts
+			(xy 152.4 109.22) (xy 152.4 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3900e796-f171-4544-adbc-bc0b82f42ef3")
 	)
 	(wire
 		(pts
@@ -3097,6 +3057,16 @@
 	)
 	(wire
 		(pts
+			(xy 152.4 107.95) (xy 154.94 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "57b96c6a-054a-4e54-8407-b168c4ee5649")
+	)
+	(wire
+		(pts
 			(xy 259.08 57.15) (xy 266.7 57.15)
 		)
 		(stroke
@@ -3114,16 +3084,6 @@
 			(type default)
 		)
 		(uuid "5c6e51da-77f9-429f-8d56-140bd11304a4")
-	)
-	(wire
-		(pts
-			(xy 236.22 33.02) (xy 250.19 33.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5d2a86a3-0787-4da1-97fb-3fc4219fa98d")
 	)
 	(wire
 		(pts
@@ -3164,26 +3124,6 @@
 			(type default)
 		)
 		(uuid "60d4deb8-1f6c-4f6c-867d-ba2cd5be1a35")
-	)
-	(wire
-		(pts
-			(xy 149.86 104.14) (xy 149.86 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "63b7f851-f821-4008-beb4-db68d9893550")
-	)
-	(wire
-		(pts
-			(xy 53.34 144.78) (xy 53.34 148.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6a086832-3c81-4aa8-af15-7b7156a667e7")
 	)
 	(wire
 		(pts
@@ -3497,16 +3437,6 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 144.78) (xy 63.5 148.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8f3fb777-458c-45cd-8d62-03f7ab1d899b")
-	)
-	(wire
-		(pts
 			(xy 39.37 101.6) (xy 39.37 104.14)
 		)
 		(stroke
@@ -3727,7 +3657,7 @@
 	)
 	(wire
 		(pts
-			(xy 53.34 128.27) (xy 86.36 128.27)
+			(xy 69.85 128.27) (xy 86.36 128.27)
 		)
 		(stroke
 			(width 0)
@@ -3754,16 +3684,6 @@
 			(type default)
 		)
 		(uuid "b7705378-13c8-4afb-88f4-0f1657299a2a")
-	)
-	(wire
-		(pts
-			(xy 53.34 148.59) (xy 58.42 148.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b7f194aa-095b-4ab3-a993-cc16afd89c74")
 	)
 	(wire
 		(pts
@@ -3814,26 +3734,6 @@
 			(type default)
 		)
 		(uuid "bf0d7cba-66bb-4481-a106-bdb3d0f8bcfc")
-	)
-	(wire
-		(pts
-			(xy 154.94 104.14) (xy 154.94 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bffbf7c2-f053-4bb9-90dc-6c24008ba5cf")
-	)
-	(wire
-		(pts
-			(xy 53.34 128.27) (xy 53.34 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c2ac7b03-8e9b-459d-8a73-7ff4451e55dc")
 	)
 	(wire
 		(pts
@@ -4027,16 +3927,6 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 133.35) (xy 63.5 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e02a6e7b-278c-46cb-bc52-22868cbf7679")
-	)
-	(wire
-		(pts
 			(xy 120.65 81.28) (xy 125.73 81.28)
 		)
 		(stroke
@@ -4087,6 +3977,16 @@
 	)
 	(wire
 		(pts
+			(xy 152.4 107.95) (xy 149.86 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ec902d0c-4ea9-45bd-92eb-e57dcd677e96")
+	)
+	(wire
+		(pts
 			(xy 266.7 57.15) (xy 266.7 54.61)
 		)
 		(stroke
@@ -4094,6 +3994,16 @@
 			(type default)
 		)
 		(uuid "ecaf8d97-0b97-48f3-a431-e3e3d6980909")
+	)
+	(wire
+		(pts
+			(xy 152.4 104.14) (xy 152.4 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "edb42868-e789-4d8e-87f1-055d965a0ddb")
 	)
 	(wire
 		(pts
@@ -4114,16 +4024,6 @@
 			(type default)
 		)
 		(uuid "efaa65de-7cb8-4d61-b28e-0255c6d7a365")
-	)
-	(wire
-		(pts
-			(xy 236.22 81.28) (xy 250.19 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f06fa4a6-f66a-4f08-b4a4-36744823ecf0")
 	)
 	(wire
 		(pts
@@ -4349,17 +4249,6 @@
 		)
 		(uuid "00392f7f-e442-4c37-aead-af2ddc7c5581")
 	)
-	(label "NO_AMP_L_CONNECTED"
-		(at 63.5 133.35 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0ca1a7a3-6b19-4047-b2bb-60c095db107f")
-	)
 	(label "AVDD"
 		(at 236.22 45.72 180)
 		(fields_autoplaced yes)
@@ -4414,17 +4303,6 @@
 			(justify right bottom)
 		)
 		(uuid "3b37cba1-a082-4351-a9d4-420e9cf1285c")
-	)
-	(label "CPGND"
-		(at 149.86 106.68 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "408304f6-84ec-430d-a695-cf7d8d686b55")
 	)
 	(label "+5V_FILT"
 		(at 161.29 26.67 180)
@@ -4503,17 +4381,6 @@
 		)
 		(uuid "6e3780fa-eca7-4768-a10b-157cd63e9965")
 	)
-	(label "DGND"
-		(at 152.4 106.68 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "78544be6-c334-4fc4-95a9-8e594d9d118c")
-	)
 	(label "NO_AMP_OUT_R"
 		(at 69.85 125.73 0)
 		(fields_autoplaced yes)
@@ -4524,17 +4391,6 @@
 			(justify left bottom)
 		)
 		(uuid "7ad3d5aa-7741-4f28-95aa-878f4cc4564a")
-	)
-	(label "DGND"
-		(at 236.22 81.28 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "824ec977-b54c-4e4f-ac41-6ee37f54d569")
 	)
 	(label "XSMT_CFG"
 		(at 55.88 81.28 0)
@@ -4613,28 +4469,6 @@
 		)
 		(uuid "9c5e4cb9-4ba2-42df-b7d1-d0ec60aa680b")
 	)
-	(label "NO_AMP_R_CONNECTED"
-		(at 53.34 128.27 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9ce2fd1f-6e7e-4944-a3b7-c8af3a499e7d")
-	)
-	(label "AGND"
-		(at 154.94 106.68 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "a41f8775-88ea-4f7d-87b3-4198ce6c1488")
-	)
 	(label "OUTL"
 		(at 167.64 76.2 0)
 		(fields_autoplaced yes)
@@ -4656,17 +4490,6 @@
 			(justify left bottom)
 		)
 		(uuid "aa4363b0-340f-42df-a2c7-8992b1d3432b")
-	)
-	(label "CPGND"
-		(at 236.22 33.02 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "b20998ac-3352-45fa-a8b8-819c453c93ea")
 	)
 	(label "LDO"
 		(at 166.37 96.52 0)
@@ -4701,17 +4524,6 @@
 		)
 		(uuid "c3870277-9b5f-4d54-bcd2-b763f663b989")
 	)
-	(label "DGND"
-		(at 236.22 100.33 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "cdecc5c7-02bd-4aa8-8113-a9bdd81de547")
-	)
 	(label "FLT_CFG"
 		(at 128.27 88.9 0)
 		(fields_autoplaced yes)
@@ -4745,17 +4557,6 @@
 		)
 		(uuid "f8dabd50-aee7-4d50-8e2e-27e4ddf0f7c0")
 	)
-	(label "AGND"
-		(at 236.22 57.15 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "fbb3b272-6b16-467b-8d2c-0189c3560c30")
-	)
 	(label "VNEG"
 		(at 166.37 99.06 0)
 		(fields_autoplaced yes)
@@ -4780,6 +4581,28 @@
 		(uuid "43928312-0e75-423b-b417-6cf29c2bbdb2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 109.9239 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "NO_AMP_R_CONNECTED"
+		(shape input)
+		(at 69.85 128.27 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "5cc91493-1ede-4c01-ae78-f7f4da5916ac")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 45.1539 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4855,6 +4678,28 @@
 			)
 		)
 	)
+	(global_label "NO_AMP_L_CONNECTED"
+		(shape input)
+		(at 81.28 133.35 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b0f25cea-d366-4587-9211-8ab277ad664f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 56.8258 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(symbol
 		(lib_id "stm32f401_pcm5102_shiled_lib:SW_DPDT_XLX")
 		(at 45.72 44.45 0)
@@ -4907,6 +4752,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "SHOU HAN"
+			(at 45.72 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "8-8 ZS"
+			(at 45.72 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "5"
 			(uuid "cb9baeb0-510f-44ab-bdf4-cfac3dc0eff7")
 		)
@@ -4935,32 +4798,17 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 53.34 140.97 180)
+		(lib_id "power:+5V")
+		(at 99.06 22.86 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "0b435d65-c8fc-4384-857a-b92bf3e0b8de")
-		(property "Reference" "R203"
-			(at 59.69 140.97 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "100kR"
-			(at 57.15 140.97 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 55.118 140.97 90)
+		(fields_autoplaced yes)
+		(uuid "0b405768-7fb1-4196-941e-c460af82161e")
+		(property "Reference" "#PWR014"
+			(at 99.06 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4968,8 +4816,16 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 53.34 140.97 0)
+		(property "Value" "+5V"
+			(at 99.06 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 99.06 22.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4977,8 +4833,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 53.34 140.97 0)
+		(property "Datasheet" ""
+			(at 99.06 22.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4986,26 +4842,8 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC link" "https://www.lcsc.com/product-detail/Chip-Resistor-Surface-Mount_UNI-ROYAL-Uniroyal-Elec-0805W8F100JT5E_C17415.html"
-			(at 53.34 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 53.34 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer Part Number" "0805W8F100JT5E"
-			(at 53.34 140.97 0)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 99.06 22.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5014,15 +4852,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "9a8a57d5-4b9a-4419-8693-8b2885798f12")
-		)
-		(pin "2"
-			(uuid "762e2066-f54f-4266-8aa2-c10ca0bc59a2")
+			(uuid "385262af-e893-43aa-ae8c-d09b731aabe2")
 		)
 		(instances
-			(project "stm32f411ceu6_pcm5102_shield"
+			(project ""
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "R203")
+					(reference "#PWR014")
 					(unit 1)
 				)
 			)
@@ -5072,6 +4907,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 45.72 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "SHOU HAN"
+			(at 45.72 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "8-8 ZS"
 			(at 45.72 27.94 0)
 			(effects
 				(font
@@ -5151,6 +5004,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 45.72 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "SHOU HAN"
+			(at 45.72 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "8-8 ZS"
 			(at 45.72 77.47 0)
 			(effects
 				(font
@@ -5249,7 +5120,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Samwha Capacitor"
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 152.4 33.02 0)
 			(effects
 				(font
@@ -5258,7 +5129,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "CS2012X5R226M160NRE"
+		(property "Manufacturer Part Number" "CL21A226MQQNNNE"
 			(at 152.4 33.02 0)
 			(effects
 				(font
@@ -5343,71 +5214,6 @@
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
 					(reference "#PWR035")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 58.42 151.13 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "13f2d4ee-e20e-49a6-9d70-ebdc23a4a3e1")
-		(property "Reference" "#PWR038"
-			(at 58.42 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 61.976 152.908 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 58.42 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 58.42 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 58.42 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ac1c4d69-6249-44c3-9a0a-cb1e65bc525b")
-		)
-		(instances
-			(project "stm32f411ceu6_pcm5102_shield"
-				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -5564,7 +5370,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 250.444 96.52 0)
 			(effects
 				(font
@@ -5573,7 +5379,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 251.1552 97.79 0)
 			(effects
 				(font
@@ -5600,6 +5406,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 250.19 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "CL21B104KBCNNNC"
+			(at 250.19 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1ed106f9-e62c-484c-b0de-c7d5a33acea0")
 		)
@@ -5610,100 +5434,6 @@
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
 					(reference "C210")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 63.5 140.97 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1a6664f6-82bf-4eab-9907-a4de0031d993")
-		(property "Reference" "R204"
-			(at 69.85 140.97 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10R"
-			(at 67.31 140.97 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 65.278 140.97 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 63.5 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 63.5 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC link" "https://www.lcsc.com/product-detail/Chip-Resistor-Surface-Mount_UNI-ROYAL-Uniroyal-Elec-0805W8F100JT5E_C17415.html"
-			(at 63.5 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 63.5 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer Part Number" "0805W8F100JT5E"
-			(at 63.5 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b0b37f91-7506-412c-9da6-230da38432fb")
-		)
-		(pin "2"
-			(uuid "1cbad1c8-5fde-46a2-9959-68707192b489")
-		)
-		(instances
-			(project "stm32f411ceu6_pcm5102_shield"
-				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "R204")
 					(unit 1)
 				)
 			)
@@ -5803,7 +5533,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 123.4948 36.83 0)
 			(effects
 				(font
@@ -5839,7 +5569,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Samwha Capacitor"
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 124.46 33.02 0)
 			(effects
 				(font
@@ -5848,7 +5578,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "CS1608Y5V105Z160NRB"
+		(property "Manufacturer Part Number" "CL21B105KBFNNNE"
 			(at 124.46 33.02 0)
 			(effects
 				(font
@@ -5935,7 +5665,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Samwha Capacitor"
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 185.42 33.02 0)
 			(effects
 				(font
@@ -5944,7 +5674,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "CS2012X5R226M160NRE"
+		(property "Manufacturer Part Number" "CL21A226MQQNNNE"
 			(at 185.42 33.02 0)
 			(effects
 				(font
@@ -5995,7 +5725,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 172.4152 91.44 0)
 			(effects
 				(font
@@ -6014,6 +5744,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 171.45 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 171.45 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "CL21B225KAFNNNE"
 			(at 171.45 87.63 0)
 			(effects
 				(font
@@ -6223,7 +5971,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 129.54 83.058 90)
 			(effects
 				(font
@@ -6242,6 +5990,24 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 129.54 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 129.54 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "0805W8F220JT5E"
 			(at 129.54 81.28 0)
 			(effects
 				(font
@@ -6464,7 +6230,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 129.54 85.598 90)
 			(effects
 				(font
@@ -6483,6 +6249,24 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 129.54 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 129.54 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "0805W8F220JT5E"
 			(at 129.54 83.82 0)
 			(effects
 				(font
@@ -6599,7 +6383,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A"
 			(at 267.6652 97.79 0)
 			(effects
 				(font
@@ -6618,6 +6402,24 @@
 			)
 		)
 		(property "Description" "Polarized capacitor"
+			(at 266.7 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Kyocera AVX"
+			(at 266.7 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "TAJA106K016RNJ"
 			(at 266.7 93.98 0)
 			(effects
 				(font
@@ -6669,7 +6471,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A"
 			(at 267.6652 54.61 0)
 			(effects
 				(font
@@ -6688,6 +6490,24 @@
 			)
 		)
 		(property "Description" "Polarized capacitor"
+			(at 266.7 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Kyocera AVX"
+			(at 266.7 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "TAJA106K016RNJ"
 			(at 266.7 50.8 0)
 			(effects
 				(font
@@ -6806,7 +6626,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A"
 			(at 267.6652 30.48 0)
 			(effects
 				(font
@@ -6825,6 +6645,24 @@
 			)
 		)
 		(property "Description" "Polarized capacitor"
+			(at 266.7 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Kyocera AVX"
+			(at 266.7 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "TAJA106K016RNJ"
 			(at 266.7 26.67 0)
 			(effects
 				(font
@@ -6900,6 +6738,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "SHOU HAN"
+			(at 45.72 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "8-8 ZS"
+			(at 45.72 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "5"
 			(uuid "014d539d-217c-42b9-930b-d61df2606f68")
 		)
@@ -6954,7 +6810,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 35.2552 147.32 0)
 			(effects
 				(font
@@ -6973,6 +6829,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 34.29 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 34.29 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "CL21C222JBFNNNE"
 			(at 34.29 143.51 0)
 			(effects
 				(font
@@ -7460,6 +7334,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "SHOU HAN"
+			(at 45.72 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "8-8 ZS"
+			(at 45.72 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "5"
 			(uuid "f3fa7821-043d-40fa-a5c3-e637868641e7")
 		)
@@ -7505,7 +7397,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 250.444 53.34 0)
 			(effects
 				(font
@@ -7514,7 +7406,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 251.1552 54.61 0)
 			(effects
 				(font
@@ -7533,6 +7425,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 250.19 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 250.19 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "CL21B104KBCNNNC"
 			(at 250.19 50.8 0)
 			(effects
 				(font
@@ -7581,7 +7491,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 25.4 140.208 90)
 			(effects
 				(font
@@ -7600,6 +7510,24 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 25.4 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 25.4 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "0805W8F4700T5E"
 			(at 25.4 138.43 0)
 			(effects
 				(font
@@ -7849,7 +7777,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 35.2552 132.08 0)
 			(effects
 				(font
@@ -7868,6 +7796,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 34.29 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 34.29 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "CL21C222JBFNNNE"
 			(at 34.29 128.27 0)
 			(effects
 				(font
@@ -7919,7 +7865,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A"
 			(at 267.6652 78.74 0)
 			(effects
 				(font
@@ -7946,6 +7892,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "Kyocera AVX"
+			(at 266.7 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "TAJA106K016RNJ"
+			(at 266.7 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "5ad7d299-ea4e-4476-95b6-b4fd9cbf319f")
 		)
@@ -7956,6 +7920,72 @@
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
 					(reference "C209")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 152.4 109.22 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b02673bf-bf00-4560-8ed4-6b5be043de45")
+		(property "Reference" "#PWR067"
+			(at 152.4 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 152.4 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 152.4 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 152.4 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 152.4 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a2724669-c0b4-4e55-8643-d6f1786c2ad6")
+		)
+		(instances
+			(project "stm32f411ceu6_pcm5102_shield"
+				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
+					(reference "#PWR067")
 					(unit 1)
 				)
 			)
@@ -8117,7 +8147,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 25.4 124.968 90)
 			(effects
 				(font
@@ -8136,6 +8166,24 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 25.4 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 25.4 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "0805W8F4700T5E"
 			(at 25.4 123.19 0)
 			(effects
 				(font
@@ -8582,7 +8630,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 129.54 77.978 90)
 			(effects
 				(font
@@ -8601,6 +8649,24 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 129.54 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 129.54 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "0805W8F220JT5E"
 			(at 129.54 76.2 0)
 			(effects
 				(font
@@ -8651,7 +8717,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 172.4152 106.68 0)
 			(effects
 				(font
@@ -8670,6 +8736,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 171.45 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 171.45 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "CL21B225KAFNNNE"
 			(at 171.45 102.87 0)
 			(effects
 				(font
@@ -8850,7 +8934,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 129.54 80.518 90)
 			(effects
 				(font
@@ -8869,6 +8953,24 @@
 			)
 		)
 		(property "Description" "Resistor"
+			(at 129.54 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 129.54 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "0805W8F220JT5E"
 			(at 129.54 78.74 0)
 			(effects
 				(font
@@ -8910,7 +9012,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 250.444 29.21 0)
 			(effects
 				(font
@@ -8919,7 +9021,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 251.1552 30.48 0)
 			(effects
 				(font
@@ -8938,6 +9040,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 250.19 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 250.19 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "CL21B104KBCNNNC"
 			(at 250.19 26.67 0)
 			(effects
 				(font
@@ -9120,7 +9240,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 98.0948 36.83 0)
 			(effects
 				(font
@@ -9156,7 +9276,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Samwha Capacitor"
+		(property "Manufacturer" "Samsung Electro-Mechanics"
 			(at 99.06 33.02 0)
 			(effects
 				(font
@@ -9165,7 +9285,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "CS1608Y5V105Z160NRB"
+		(property "Manufacturer Part Number" "CL21B105KBFNNNE"
 			(at 99.06 33.02 0)
 			(effects
 				(font
@@ -9294,71 +9414,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 99.06 22.86 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f72af58b-cb16-4805-ad8f-61acabd2a49b")
-		(property "Reference" "#PWR014"
-			(at 99.06 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+5V"
-			(at 99.06 19.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 99.06 22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 99.06 22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 99.06 22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e6366dbf-179a-46a2-b8cf-c78852c7af35")
-		)
-		(instances
-			(project "stm32f411ceu6_pcm5102_shield"
-				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "#PWR014")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 250.19 74.93 0)
 		(unit 1)
@@ -9376,7 +9431,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1uF"
+		(property "Value" "100nF"
 			(at 250.444 77.47 0)
 			(effects
 				(font
@@ -9385,7 +9440,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 251.1552 78.74 0)
 			(effects
 				(font
@@ -9404,6 +9459,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 250.19 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Samsung Electro-Mechanics"
+			(at 250.19 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "CL21B104KBCNNNC"
 			(at 250.19 74.93 0)
 			(effects
 				(font
