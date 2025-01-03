@@ -2218,227 +2218,6 @@
 				)
 			)
 		)
-		(symbol "stm32f401_pcm5102_shiled_lib:SW_DPDT_XLX"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SW_DPDT_XLX"
-				(at 0 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "stm32f401_pcm5102_shiled_lib:SW_DPDT_XLX"
-				(at 1.27 -10.16 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SW_DPDT_XLX_0_1"
-				(rectangle
-					(start -3.81 0)
-					(end 3.81 -7.62)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(circle
-					(center -2.54 -1.27)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 -3.81) (xy -2.54 -6.35)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 -3.81) (xy 2.54 -6.35)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy 1.27 -2.54) (xy 1.27 -5.08) (xy -1.27 -5.08) (xy -1.27 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SW_DPDT_XLX_1_1"
-				(pin passive line
-					(at -6.35 -1.27 0)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -6.35 -3.81 0)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -6.35 -6.35 0)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 6.35 -1.27 180)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 6.35 -3.81 180)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 6.35 -6.35 180)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 	)
 	(junction
 		(at 217.17 85.09)
@@ -2543,12 +2322,6 @@
 		(uuid "bd114bd8-f9bb-4f7b-aeed-5048cf72970d")
 	)
 	(junction
-		(at 39.37 26.67)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c07e1323-2bfd-44e9-a5d5-9f6bedc2dc2c")
-	)
-	(junction
 		(at 224.79 71.12)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2559,12 +2332,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cf2d663e-2649-463f-aa07-2632fc55ece7")
-	)
-	(junction
-		(at 39.37 35.56)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d754aa7c-6359-4d35-81b7-ccb2a5b123cb")
 	)
 	(junction
 		(at 217.17 110.49)
@@ -2602,10 +2369,6 @@
 		(color 0 0 0 0)
 		(uuid "fc7cadd3-ef6b-4617-87f2-46d2d50c2f2e")
 	)
-	(no_connect
-		(at 39.37 31.75)
-		(uuid "fc25bf44-f29d-45de-b46e-69f0f39224a1")
-	)
 	(wire
 		(pts
 			(xy 168.91 41.91) (xy 168.91 43.18)
@@ -2635,16 +2398,6 @@
 			(type default)
 		)
 		(uuid "01858759-0203-4311-a24a-a8fdb71ff401")
-	)
-	(wire
-		(pts
-			(xy 39.37 29.21) (xy 39.37 26.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "07229013-9ec2-4d53-877b-481853809944")
 	)
 	(wire
 		(pts
@@ -2755,16 +2508,6 @@
 			(type default)
 		)
 		(uuid "1e83415d-f3d9-4f16-a936-e64c38196cf2")
-	)
-	(wire
-		(pts
-			(xy 39.37 38.1) (xy 52.07 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1eebb2b8-b3df-4dab-9a13-97e44da72745")
 	)
 	(wire
 		(pts
@@ -2968,26 +2711,6 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 34.29) (xy 39.37 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "46233559-ecd8-40b5-a6f9-84414fa0cce5")
-	)
-	(wire
-		(pts
-			(xy 39.37 25.4) (xy 52.07 25.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "46ad6282-4367-4915-b8b3-5ec44ae7eb2e")
-	)
-	(wire
-		(pts
 			(xy 168.91 39.37) (xy 185.42 39.37)
 		)
 		(stroke
@@ -3088,26 +2811,6 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 35.56) (xy 39.37 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5de9be75-d906-49b2-83bb-5fc058b8533a")
-	)
-	(wire
-		(pts
-			(xy 100.33 83.82) (xy 125.73 83.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5defab34-8dfc-4a2a-b157-fa5690b8717c")
-	)
-	(wire
-		(pts
 			(xy 120.65 78.74) (xy 125.73 78.74)
 		)
 		(stroke
@@ -3145,26 +2848,6 @@
 			(type default)
 		)
 		(uuid "664b3e8f-002f-4308-97e0-2a2ce093a4f9")
-	)
-	(wire
-		(pts
-			(xy 52.07 25.4) (xy 52.07 29.21)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6c3ed93d-666a-42c3-9ade-2010026841eb")
-	)
-	(wire
-		(pts
-			(xy 39.37 26.67) (xy 39.37 25.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6f32788a-022e-46c1-bd4a-9fed3e7aa867")
 	)
 	(wire
 		(pts
@@ -3275,16 +2958,6 @@
 			(type default)
 		)
 		(uuid "7a810920-0589-46e5-8822-ab42fddecdcc")
-	)
-	(wire
-		(pts
-			(xy 52.07 38.1) (xy 52.07 34.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7ada68f6-9dd3-4df8-86a5-5d27c54f4650")
 	)
 	(wire
 		(pts
@@ -3408,6 +3081,16 @@
 	)
 	(wire
 		(pts
+			(xy 120.65 83.82) (xy 125.73 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "98122ed3-6690-4c37-8c0f-4c3a006d6d75")
+	)
+	(wire
+		(pts
 			(xy 127 96.52) (xy 127 102.87)
 		)
 		(stroke
@@ -3435,16 +3118,6 @@
 			(type default)
 		)
 		(uuid "9d860e02-85d1-4d92-b978-1570bd1cc882")
-	)
-	(wire
-		(pts
-			(xy 29.21 35.56) (xy 39.37 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9e373b86-2200-44a7-b378-e0581305055f")
 	)
 	(wire
 		(pts
@@ -3495,16 +3168,6 @@
 			(type default)
 		)
 		(uuid "a72c119a-001d-464b-a9d1-c479bd0d6ad3")
-	)
-	(wire
-		(pts
-			(xy 34.29 26.67) (xy 39.37 26.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "aa6b3d14-1fbe-446c-89d8-77762beb3c86")
 	)
 	(wire
 		(pts
@@ -3778,16 +3441,6 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 31.75) (xy 57.15 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "de5eea21-f6ce-4153-bc09-f2854ed592b8")
-	)
-	(wire
-		(pts
 			(xy 128.27 24.13) (xy 128.27 26.67)
 		)
 		(stroke
@@ -3967,18 +3620,6 @@
 		(uuid "ff8aaca8-0613-4ec6-a442-c3c79b591009")
 	)
 	(rectangle
-		(start 13.97 12.7)
-		(end 68.58 41.91)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 7732b113-0eff-481c-a1a4-b103e818bbbd)
-	)
-	(rectangle
 		(start 13.97 111.76)
 		(end 138.43 157.48)
 		(stroke
@@ -4045,16 +3686,6 @@
 		)
 		(uuid "8de4af1f-d492-4335-86a9-6ccef04dfe2e")
 	)
-	(text "Push ON: 2-3, 5-6 conduction\nPush OFF: 1-2, 4-5 conduction"
-		(exclude_from_sim no)
-		(at 43.18 17.272 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "90a3ead6-21a9-4414-98ef-6598216a61be")
-	)
 	(text "Link to the PCM product page: https://www.ti.com/product/PCM5102A"
 		(exclude_from_sim no)
 		(at 50.038 195.072 0)
@@ -4106,17 +3737,6 @@
 			)
 		)
 		(uuid "ffc87a4e-34d5-4367-88e6-d8a295b7d045")
-	)
-	(label "SCK_CFG"
-		(at 100.33 83.82 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "00392f7f-e442-4c37-aead-af2ddc7c5581")
 	)
 	(label "NO_AMP_OUT_L"
 		(at 69.85 130.81 0)
@@ -4205,17 +3825,6 @@
 			(justify left bottom)
 		)
 		(uuid "8bedb968-b5c9-400b-8012-936db9ae51c1")
-	)
-	(label "SCK_CFG"
-		(at 57.15 31.75 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "942c8812-41ef-46b5-83fe-cdd86c861904")
 	)
 	(label "OUTR"
 		(at 15.24 123.19 0)
@@ -4362,7 +3971,7 @@
 	)
 	(global_label "I2S2_MCK"
 		(shape input)
-		(at 34.29 26.67 180)
+		(at 120.65 83.82 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4372,7 +3981,7 @@
 		)
 		(uuid "90580113-0ff2-4875-b836-fa0846777e24")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 22.1125 26.67 0)
+			(at 108.4725 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4558,103 +4167,6 @@
 		)
 	)
 	(symbol
-		(lib_id "stm32f401_pcm5102_shiled_lib:SW_DPDT_XLX")
-		(at 45.72 27.94 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0c1a2c99-05ef-4141-8844-03db4f9ddd47")
-		(property "Reference" "SW200"
-			(at 45.72 22.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_DPDT_XLX"
-			(at 45.974 24.384 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "stm32f401_pcm5102_shiled_lib:SW_DPDT_XLX"
-			(at 46.99 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 45.72 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 45.72 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "SHOU HAN"
-			(at 45.72 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer Part Number" "8-8 ZS"
-			(at 45.72 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "5"
-			(uuid "0cea8133-f15a-4b80-9497-f2da35a98f2a")
-		)
-		(pin "1"
-			(uuid "c840daf6-a0c1-48b3-8eb6-05b52fe41251")
-		)
-		(pin "6"
-			(uuid "4f4c00a7-c0f8-430c-9a70-d99f8ef22edf")
-		)
-		(pin "4"
-			(uuid "f1c3fb87-2bf5-49c7-8d1a-861315499cc2")
-		)
-		(pin "3"
-			(uuid "34b8a9d3-e29c-4d6a-858c-3ba648ac23fe")
-		)
-		(pin "2"
-			(uuid "23f0d63a-e57f-43fc-b072-79cf1db16d8d")
-		)
-		(instances
-			(project "stm32f411ceu6_pcm5102_shield"
-				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "SW200")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 152.4 33.02 0)
 		(unit 1)
@@ -4811,73 +4323,6 @@
 			(project "stm32f411ceu6_pcm5102_shield"
 				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
 					(reference "#PWR035")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 29.21 35.56 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "152b74e1-4c79-4e85-93d0-8818edba2f08")
-		(property "Reference" "#PWR01"
-			(at 22.86 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 25.4 35.5599 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 29.21 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 29.21 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 29.21 35.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "86dd46f4-387e-4da9-836b-e7533d47ad10")
-		)
-		(instances
-			(project "stm32f411ceu6_pcm5102_shield"
-				(path "/aeaad843-2b7c-40e9-bb1d-8d1f5e5d5206/d6b6fe50-d30a-4f82-97da-ed188bcde249"
-					(reference "#PWR01")
 					(unit 1)
 				)
 			)

@@ -602,7 +602,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(ONBOARD_LED_GPIO_Port, ONBOARD_LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED_MIC_MUTE_GPIO_Port, LED_MIC_MUTE_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LED_SPK_MUTE_Pin|LED_MIC_MUTE_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : ONBOARD_LED_Pin */
   GPIO_InitStruct.Pin = ONBOARD_LED_Pin;
@@ -611,12 +611,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(ONBOARD_LED_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LED_MIC_MUTE_Pin */
-  GPIO_InitStruct.Pin = LED_MIC_MUTE_Pin;
+  /*Configure GPIO pins : LED_SPK_MUTE_Pin LED_MIC_MUTE_Pin */
+  GPIO_InitStruct.Pin = LED_SPK_MUTE_Pin|LED_MIC_MUTE_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED_MIC_MUTE_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : USR_MIC_MUTE_BTN_Pin */
   GPIO_InitStruct.Pin = USR_MIC_MUTE_BTN_Pin;
