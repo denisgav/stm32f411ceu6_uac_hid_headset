@@ -5070,7 +5070,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "0805W8F220JT5E"
+		(property "Manufacturer Part Number" "0603WAF220JT5E"
 			(at 129.54 81.28 0)
 			(effects
 				(font
@@ -5417,7 +5417,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "0805W8F220JT5E"
+		(property "Manufacturer Part Number" "0603WAF220JT5E"
 			(at 129.54 83.82 0)
 			(effects
 				(font
@@ -7273,7 +7273,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "0805W8F220JT5E"
+		(property "Manufacturer Part Number" "0603WAF220JT5E"
 			(at 129.54 76.2 0)
 			(effects
 				(font
@@ -7643,7 +7643,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "0805W8F220JT5E"
+		(property "Manufacturer Part Number" "0603WAF220JT5E"
 			(at 129.54 78.74 0)
 			(effects
 				(font

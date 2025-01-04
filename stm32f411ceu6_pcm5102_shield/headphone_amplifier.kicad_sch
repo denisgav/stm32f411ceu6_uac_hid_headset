@@ -7711,7 +7711,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 179.832 58.42 90)
 			(effects
 				(font
@@ -7756,7 +7756,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "0805W8F220JT5E"
+		(property "Manufacturer Part Number" "0603WAF220JT5E"
 			(at 181.61 58.42 0)
 			(effects
 				(font
@@ -8216,7 +8216,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 69.342 60.96 90)
 			(effects
 				(font
@@ -8261,7 +8261,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "0805W8F220JT5E"
+		(property "Manufacturer Part Number" "0603WAF220JT5E"
 			(at 71.12 60.96 0)
 			(effects
 				(font
