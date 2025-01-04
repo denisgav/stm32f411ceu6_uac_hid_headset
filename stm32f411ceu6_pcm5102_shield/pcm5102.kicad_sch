@@ -3881,7 +3881,7 @@
 		)
 		(uuid "fdbf6d6f-0e70-4b16-a4b9-9c1e4b26ba80")
 	)
-	(global_label "I2S2_CK"
+	(global_label "I2S3_CK"
 		(shape input)
 		(at 120.65 81.28 180)
 		(fields_autoplaced yes)
@@ -3925,7 +3925,7 @@
 			)
 		)
 	)
-	(global_label "I2S2_SD"
+	(global_label "I2S3_SD"
 		(shape input)
 		(at 120.65 78.74 180)
 		(fields_autoplaced yes)
@@ -3947,7 +3947,7 @@
 			)
 		)
 	)
-	(global_label "I2S2_WS"
+	(global_label "I2S3_WS"
 		(shape input)
 		(at 120.65 76.2 180)
 		(fields_autoplaced yes)
@@ -3969,7 +3969,7 @@
 			)
 		)
 	)
-	(global_label "I2S2_MCK"
+	(global_label "I2S3_MCK"
 		(shape input)
 		(at 120.65 83.82 180)
 		(fields_autoplaced yes)
@@ -5034,7 +5034,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 129.54 83.058 90)
 			(effects
 				(font
@@ -5381,7 +5381,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 129.54 85.598 90)
 			(effects
 				(font
@@ -7237,7 +7237,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 129.54 77.978 90)
 			(effects
 				(font
@@ -7607,7 +7607,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 129.54 80.518 90)
 			(effects
 				(font

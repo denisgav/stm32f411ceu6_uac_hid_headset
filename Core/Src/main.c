@@ -33,8 +33,10 @@
 #include "ring_buf.h"
 #include "usb_headset_settings.h"
 
+#ifdef OPT_SSD1306_EN
 #include "ssd1306.h"
 #include "ssd1306_fonts.h"
+#endif //OPT_SSD1306_EN
 
 #include "usb_hid_status.h"
 /* USER CODE END Includes */
@@ -60,8 +62,8 @@ DMA_HandleTypeDef hdma_i2c1_tx;
 
 I2S_HandleTypeDef hi2s2;
 I2S_HandleTypeDef hi2s3;
-DMA_HandleTypeDef hdma_spi2_tx;
-DMA_HandleTypeDef hdma_spi3_rx;
+DMA_HandleTypeDef hdma_spi2_rx;
+DMA_HandleTypeDef hdma_spi3_tx;
 
 TIM_HandleTypeDef htim3;
 
@@ -143,7 +145,9 @@ uint32_t empty_mic_dma(uint32_t *dma_buffer_p,
 		uint32_t sizeof_half_dma_buffer_in_words);
 
 void status_update_task(void);
+#ifdef OPT_SSD1306_EN
 void display_ssd1306_info(void);
+#endif //OPT_SSD1306_EN
 
 /* USER CODE END PV */
 
@@ -250,8 +254,10 @@ int main(void)
 
 	TU_LOG1("Headset running\r\n");
 
+	#ifdef OPT_SSD1306_EN
 	// Init SSD
 	ssd1306_Init();
+	#endif //OPT_SSD1306_EN
 
 	memset(&hid_status, 0x0, sizeof(hid_status));
 	HAL_TIM_Encoder_Start_IT(&htim3, TIM_CHANNEL_ALL);
@@ -266,7 +272,9 @@ int main(void)
 		status_update_task();
 		usb_hid_task();
 
+		#ifdef OPT_SSD1306_EN
 		ssd1306_DMA_task();
+		#endif //OPT_SSD1306_EN
 
     /* USER CODE END WHILE */
 
@@ -390,10 +398,10 @@ static void MX_I2S2_Init(void)
 
   /* USER CODE END I2S2_Init 1 */
   hi2s2.Instance = SPI2;
-  hi2s2.Init.Mode = I2S_MODE_MASTER_TX;
+  hi2s2.Init.Mode = I2S_MODE_MASTER_RX;
   hi2s2.Init.Standard = I2S_STANDARD_PHILIPS;
   hi2s2.Init.DataFormat = I2S_DATAFORMAT_32B;
-  hi2s2.Init.MCLKOutput = I2S_MCLKOUTPUT_ENABLE;
+  hi2s2.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
   hi2s2.Init.AudioFreq = I2S_AUDIOFREQ_48K;
   hi2s2.Init.CPOL = I2S_CPOL_LOW;
   hi2s2.Init.ClockSource = I2S_CLOCK_PLL;
@@ -424,10 +432,10 @@ static void MX_I2S3_Init(void)
 
   /* USER CODE END I2S3_Init 1 */
   hi2s3.Instance = SPI3;
-  hi2s3.Init.Mode = I2S_MODE_MASTER_RX;
+  hi2s3.Init.Mode = I2S_MODE_MASTER_TX;
   hi2s3.Init.Standard = I2S_STANDARD_PHILIPS;
   hi2s3.Init.DataFormat = I2S_DATAFORMAT_32B;
-  hi2s3.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
+  hi2s3.Init.MCLKOutput = I2S_MCLKOUTPUT_ENABLE;
   hi2s3.Init.AudioFreq = I2S_AUDIOFREQ_48K;
   hi2s3.Init.CPOL = I2S_CPOL_LOW;
   hi2s3.Init.ClockSource = I2S_CLOCK_PLL;
@@ -569,15 +577,15 @@ static void MX_DMA_Init(void)
   __HAL_RCC_DMA1_CLK_ENABLE();
 
   /* DMA interrupt init */
-  /* DMA1_Stream0_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
   /* DMA1_Stream1_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Stream1_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Stream1_IRQn);
-  /* DMA1_Stream4_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream4_IRQn);
+  /* DMA1_Stream3_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream3_IRQn);
+  /* DMA1_Stream5_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream5_IRQn);
 
 }
 
@@ -602,7 +610,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(ONBOARD_LED_GPIO_Port, ONBOARD_LED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_SPK_MUTE_Pin|LED_MIC_MUTE_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LED_MIC_MUTE_Pin|LED_MIC_STREAMING_Pin|LED_SPK_MUTE_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : ONBOARD_LED_Pin */
   GPIO_InitStruct.Pin = ONBOARD_LED_Pin;
@@ -611,8 +619,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(ONBOARD_LED_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LED_SPK_MUTE_Pin LED_MIC_MUTE_Pin */
-  GPIO_InitStruct.Pin = LED_SPK_MUTE_Pin|LED_MIC_MUTE_Pin;
+  /*Configure GPIO pins : LED_MIC_MUTE_Pin LED_MIC_STREAMING_Pin LED_SPK_MUTE_Pin */
+  GPIO_InitStruct.Pin = LED_MIC_MUTE_Pin|LED_MIC_STREAMING_Pin|LED_SPK_MUTE_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -630,8 +638,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(USR_SPK_MUTE_BTN_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : USR_SCAN_NEXT_BTN_Pin USR_SCAN_PREV_BTN_Pin USR_PLAY_PAUSE_BTN_Pin */
-  GPIO_InitStruct.Pin = USR_SCAN_NEXT_BTN_Pin|USR_SCAN_PREV_BTN_Pin|USR_PLAY_PAUSE_BTN_Pin;
+  /*Configure GPIO pins : USR_PLAY_PAUSE_BTN_Pin USR_SCAN_PREV_BTN_Pin USR_SCAN_NEXT_BTN_Pin */
+  GPIO_InitStruct.Pin = USR_PLAY_PAUSE_BTN_Pin|USR_SCAN_PREV_BTN_Pin|USR_SCAN_NEXT_BTN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
@@ -709,13 +717,13 @@ void refresh_i2s_connections(void) {
 			current_settings.samples_in_i2s_frame_min * 2;
 
 	// Run transmit DMA
-	HAL_StatusTypeDef tx_status = HAL_I2S_Transmit_DMA(&hi2s2, spk_i2s_buf,
+	HAL_StatusTypeDef tx_status = HAL_I2S_Transmit_DMA(&hi2s3, spk_i2s_buf,
 			num_of_samples_in_buffer);
 	if (tx_status != HAL_OK) {
 		Error_Handler();
 	}
 
-	HAL_StatusTypeDef rx_status = HAL_I2S_Receive_DMA(&hi2s3, mic_i2s_buf,
+	HAL_StatusTypeDef rx_status = HAL_I2S_Receive_DMA(&hi2s2, mic_i2s_buf,
 			num_of_samples_in_buffer);
 	if (rx_status != HAL_OK) {
 		Error_Handler();
@@ -723,23 +731,23 @@ void refresh_i2s_connections(void) {
 }
 
 HAL_StatusTypeDef refresh_i2s_spk(void) {
-	HAL_StatusTypeDef status = HAL_I2S_DeInit(&hi2s2);
+	HAL_StatusTypeDef status = HAL_I2S_DeInit(&hi2s3);
 	if (status != HAL_OK)
 		return status;
 
-	hi2s2.Instance = SPI2;
-	hi2s2.Init.Mode = I2S_MODE_MASTER_TX;
-	hi2s2.Init.Standard = I2S_STANDARD_PHILIPS;
-	hi2s2.Init.DataFormat =
+	hi2s3.Instance = SPI3;
+	hi2s3.Init.Mode = I2S_MODE_MASTER_TX;
+	hi2s3.Init.Standard = I2S_STANDARD_PHILIPS;
+	hi2s3.Init.DataFormat =
 			(current_settings.spk_resolution == 16) ?
 			I2S_DATAFORMAT_16B :
 														I2S_DATAFORMAT_32B; //I2S_DATAFORMAT_32B;
-	hi2s2.Init.MCLKOutput = I2S_MCLKOUTPUT_ENABLE;
-	hi2s2.Init.AudioFreq = current_settings.spk_sample_rate; //I2S_AUDIOFREQ_48K;
-	hi2s2.Init.CPOL = I2S_CPOL_LOW;
-	hi2s2.Init.ClockSource = I2S_CLOCK_PLL;
-	hi2s2.Init.FullDuplexMode = I2S_FULLDUPLEXMODE_DISABLE;
-	if (HAL_I2S_Init(&hi2s2) != HAL_OK) {
+	hi2s3.Init.MCLKOutput = I2S_MCLKOUTPUT_ENABLE;
+	hi2s3.Init.AudioFreq = current_settings.spk_sample_rate; //I2S_AUDIOFREQ_48K;
+	hi2s3.Init.CPOL = I2S_CPOL_LOW;
+	hi2s3.Init.ClockSource = I2S_CLOCK_PLL;
+	hi2s3.Init.FullDuplexMode = I2S_FULLDUPLEXMODE_DISABLE;
+	if (HAL_I2S_Init(&hi2s3) != HAL_OK) {
 		Error_Handler();
 	}
 
@@ -747,20 +755,20 @@ HAL_StatusTypeDef refresh_i2s_spk(void) {
 }
 
 HAL_StatusTypeDef refresh_i2s_mic(void) {
-	HAL_StatusTypeDef status = HAL_I2S_DeInit(&hi2s3);
+	HAL_StatusTypeDef status = HAL_I2S_DeInit(&hi2s2);
 	if (status != HAL_OK)
 		return status;
 
-	hi2s3.Instance = SPI3;
-	hi2s3.Init.Mode = I2S_MODE_MASTER_RX;
-	hi2s3.Init.Standard = I2S_STANDARD_PHILIPS;
-	hi2s3.Init.DataFormat = I2S_DATAFORMAT_32B;
-	hi2s3.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
-	hi2s3.Init.AudioFreq = current_settings.spk_sample_rate; //I2S_AUDIOFREQ_48K;
-	hi2s3.Init.CPOL = I2S_CPOL_LOW;
-	hi2s3.Init.ClockSource = I2S_CLOCK_PLL;
-	hi2s3.Init.FullDuplexMode = I2S_FULLDUPLEXMODE_DISABLE;
-	if (HAL_I2S_Init(&hi2s3) != HAL_OK) {
+	hi2s2.Instance = SPI2;
+	hi2s2.Init.Mode = I2S_MODE_MASTER_RX;
+	hi2s2.Init.Standard = I2S_STANDARD_PHILIPS;
+	hi2s2.Init.DataFormat = I2S_DATAFORMAT_32B;
+	hi2s2.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
+	hi2s2.Init.AudioFreq = current_settings.spk_sample_rate; //I2S_AUDIOFREQ_48K;
+	hi2s2.Init.CPOL = I2S_CPOL_LOW;
+	hi2s2.Init.ClockSource = I2S_CLOCK_PLL;
+	hi2s2.Init.FullDuplexMode = I2S_FULLDUPLEXMODE_DISABLE;
+	if (HAL_I2S_Init(&hi2s2) != HAL_OK) {
 		Error_Handler();
 	}
 
@@ -1219,6 +1227,12 @@ void status_update_task(void) {
 	HAL_GPIO_WritePin(LED_MIC_MUTE_GPIO_Port, LED_MIC_MUTE_Pin,
 			current_settings.usr_mic_mute ? GPIO_PIN_SET : GPIO_PIN_RESET);
 
+	HAL_GPIO_WritePin(LED_MIC_STREAMING_GPIO_Port, LED_MIC_STREAMING_Pin,
+				(current_settings.mic_blink_interval_ms == BLINK_STREAMING) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+
+	HAL_GPIO_WritePin(LED_SPK_MUTE_GPIO_Port, LED_SPK_MUTE_Pin,
+				(current_settings.spk_mute[0] || current_settings.spk_mute[1] || current_settings.spk_mute[2]) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+
 	// Update status once per second
 	if (cur_time_ms - prev_status_update__ms < 100)
 		return;
@@ -1227,10 +1241,13 @@ void status_update_task(void) {
 
 	if (current_settings.status_updated == true) {
 		current_settings.status_updated = false;
+		#ifdef OPT_SSD1306_EN
 		display_ssd1306_info();
+		#endif //OPT_SSD1306_EN
 	}
 }
 
+#ifdef OPT_SSD1306_EN
 void display_ssd1306_info(void) {
 	char fmt_tmp_str[20] = "";
 
@@ -1373,6 +1390,7 @@ void display_ssd1306_info(void) {
 	}
 	ssd1306_UpdateScreen_DMA();
 }
+#endif //OPT_SSD1306_EN
 
 //-----------------------------------------------------------------
 //                 USB HID
